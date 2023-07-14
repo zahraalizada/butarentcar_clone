@@ -1,0 +1,15 @@
+.navbar-brand{
+    max-width: 130px !important;
+    /* max-height: 85px !important; */
+    
+}
+.navbar-brand img{
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: contain !important;
+    object-position: center center !important;
+}
+
+.fw-6{
+    font-weight: 600;
+}
