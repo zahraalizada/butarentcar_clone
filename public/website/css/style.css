@@ -13,3 +13,26 @@
 .fw-6{
     font-weight: 600;
 }
+.cover-img{
+    max-height: 350px;
+    min-height: 100px;
+    height: 350px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+}
+ 
+.cover-description{
+    padding-top: 100px;
+    margin-top: 32px;
+}
+.cover-description h1{
+    color: #fff;
+    font-size: 54px;
+}
+
+.cover-description p{
+    color: #c3c3c3;
+    font-size: 2rem;
+    font-weight: 500;
+}
