@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('logo_img',255);
             $table->string('phone',255);
-            $table->string('phone-wp',255);
+            $table->string('phone_wp',255);
             $table->string('email',500);
             $table->string('address',500);
             $table->text('address_map');

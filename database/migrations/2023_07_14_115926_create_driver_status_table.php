@@ -13,8 +13,7 @@ return new class extends Migration
     {
         Schema::create('driver_status', function (Blueprint $table) {
             $table->id();
-            $table->string('withoutdriver');
-            $table->string('withdriver');
+            $table->string('name');
             $table->timestamps();
         });
     }

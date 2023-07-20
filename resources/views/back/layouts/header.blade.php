@@ -134,7 +134,7 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link @if(Request::segment(2)=="settings") active @endif" href="#" role="button" aria-expanded="false">
+                            <a class="nav-link @if(Request::segment(2)=="settings") active @endif" href="{{route('admin.settings.index')}}" role="button" aria-expanded="false">
                                 <div class="d-flex align-items-center">
                                     <span class="nav-link-icon">
                                        <span class="fas fa-cogs"></span>
@@ -144,7 +144,7 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link @if(Request::segment(2)=="currency") active @endif" href="#" role="button" aria-expanded="false">
+                            <a class="nav-link @if(Request::segment(2)=="currency") active @endif" href="{{route('admin.currency.index')}}" role="button" aria-expanded="false">
                                 <div class="d-flex align-items-center">
                                     <span class="nav-link-icon">
                                        <span class="fas fa-coins"></span>
@@ -154,7 +154,17 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link @if(Request::segment(2)=="car_details") active @endif" href="#" role="button" aria-expanded="false">
+                            <a class="nav-link @if(Request::segment(2)=="driverstatus") active @endif" href="{{route('admin.driverstatus.index')}}" role="button" aria-expanded="false">
+                                <div class="d-flex align-items-center">
+                                    <span class="nav-link-icon">
+                                       <i class="fas fa-user-check"></i>
+                                    </span>
+                                    <span class="nav-link-text ps-1">Status Driver</span>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link @if(Request::segment(2)=="cardetails") active @endif" href="{{route('admin.cardetails.index')}}" role="button" aria-expanded="false">
                                 <div class="d-flex align-items-center">
                                     <span class="nav-link-icon">
                                        <span class="fas fa-info-circle"></span>
@@ -164,7 +174,7 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link @if(Request::segment(2)=="cars") active @endif" href="#" role="button" aria-expanded="false">
+                            <a class="nav-link @if(Request::segment(2)=="cars") active @endif" href="{{route('admin.cars.index')}}" role="button" aria-expanded="false">
                                 <div class="d-flex align-items-center">
                                     <span class="nav-link-icon">
                                        <span class="fas fa-car"></span>
