@@ -17,21 +17,16 @@ class SocialController extends Controller
         return view('back.pages.social', compact('items'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
+
     public function create()
     {
-        return view('back.social.create');
+       //
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
+
     public function store(Request $request)
     {
-        Social::create($request->all());
-        return redirect()->route('admin.social.index')->with('success', 'Added succesfully!');
+       //
     }
 
     /**
@@ -39,8 +34,7 @@ class SocialController extends Controller
      */
     public function show(string $id)
     {
-        $item = Social::findOrFail($id);
-        return view('back.social.show', compact('item'));
+       //
     }
 
     /**
@@ -57,19 +51,19 @@ class SocialController extends Controller
      */
     public function update(Request $request, string $id)
     {
+        $validatedData = $request->validate([
+            'link' => 'nullable|string|max:500',
+        ], [
+            'link.max' => 'The link field must not be greater than 500 characters.',
+        ]);
+
         $item = Social::findOrFail($id);
-        $item->update($request->all());
+        $item->update($validatedData);
         return redirect()->route('admin.social.index')->with('success','Update succesfully!');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     */
     public function destroy(string $id)
     {
-        $item = Social::findOrFail($id);
-        $item->delete();
-        return redirect()->route('admin.social.index')->with('success','Delete succesfully!');
-
+       //
     }
 }

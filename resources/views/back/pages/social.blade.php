@@ -1,6 +1,9 @@
 @extends('back.layouts.master')
 @section('title', 'Social icons')
 @section('content')
+    @php
+        use Illuminate\Support\Str;
+    @endphp
     <div class="card mb-3">
         <div class="card-body text-end">
             <a class="btn btn-primary btn-md" href="#">
@@ -11,7 +14,7 @@
     <div class="card">
         <div class="card-header d-flex flex-between-center">
             <h3>Social icons</h3>
-            <a href="{{route('admin.social.create')}}" class="btn btn-primary btn-sm ">Add new </a>
+
         </div>
 
         @if(Session::has('success'))
@@ -28,38 +31,20 @@
                         <tr>
                             <th class="sort" data-sort="name">Name</th>
                             <th class="sort" data-sort="name">Link</th>
-                            <th class="sort" data-sort="name">Icon</th>
-                            <th class="sort" data-sort="name">Created at</th>
-                            <th class="sort" data-sort="name">Updated at</th>
                             <th class="text-end" scope="col">Actions</th>
                         </tr>
                         </thead>
                         <tbody class="list">
                         @foreach($items as $item)
                             <tr>
-                                <td>{{$item->name}}</td>
-                                <td>{{$item->link}}</td>
-                                <td>{{$item->icon}}</td>
-                                <td>2022-12-12</td>
-                                <td>2022-12-13</td>
+                                <td>{{Str::limit($item->name, 100)}}</td>
+                                <td>{{Str::limit($item->link, 50)}}</td>
                                 <td class="text-end">
                                     <div class="d-flex align-items-center justify-content-end">
-                                        <a href="{{route('admin.social.show',$item->id)}}" class="btn p-0 ms-2" type="button" data-bs-toggle="tooltip"
-                                           data-bs-placement="top" title="Show">
-                                            <span class="text-500 fas fa-eye"></span>
-                                        </a>
                                         <a href="{{route('admin.social.edit',$item->id)}}" class="btn p-0 ms-2" type="button" data-bs-toggle="tooltip"
                                                 data-bs-placement="top" title="Edit">
                                             <span class="text-500 fas fa-edit"></span>
                                         </a>
-                                        <form action="{{route('admin.social.destroy',$item->id)}}" method="post" type="button" class="btn p-0" onsubmit="return confirm('Delete product?')">
-                                            @csrf
-                                            @method('DELETE')
-                                            <button class="btn p-0 ms-2" data-bs-toggle="tooltip"
-                                                    data-bs-placement="top" title="Delete">
-                                                <span class="text-500 fas fa-trash-alt"></span>
-                                            </button>
-                                        </form>
                                     </div>
                                 </td>
                             </tr>

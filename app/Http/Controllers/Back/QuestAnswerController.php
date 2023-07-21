@@ -30,7 +30,17 @@ class QuestAnswerController extends Controller
      */
     public function store(Request $request)
     {
-        QuestAnswer::create($request->all());
+        $validatedData = $request->validate([
+            'question' => 'required|string|max:500',
+            'answer' => 'required|string|max:65335',
+        ], [
+            'question.required' => 'The question field is required..',
+            'question.max' => 'The question field must not be greater than 500 characters..',
+            'answer.required' => 'The answer field is required.',
+            'answer.max' => 'The answer field must not be greater than 65335 characters.',
+        ]);
+
+        QuestAnswer::create($validatedData);
         return redirect()->route('admin.questanswer.index')->with('success', 'Added succesfully!');
     }
 
@@ -57,8 +67,18 @@ class QuestAnswerController extends Controller
      */
     public function update(Request $request, string $id)
     {
+        $validatedData = $request->validate([
+            'question' => 'required|string|max:500',
+            'answer' => 'required|string|max:65335',
+        ], [
+            'question.required' => 'The question field is required..',
+            'question.max' => 'The question field must not be greater than 500 characters..',
+            'answer.required' => 'The answer field is required.',
+            'answer.max' => 'The answer field must not be greater than 65335 characters.',
+        ]);
+
         $item = QuestAnswer::findOrFail($id);
-        $item->update($request->all());
+        $item->update($validatedData);
         return redirect()->route('admin.questanswer.index')->with('success','Update succesfully!');
     }
 

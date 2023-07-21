@@ -13,7 +13,7 @@ class PrivacyPolicyController extends Controller
      */
     public function index()
     {
-        $items = PrivacyPolicy::orderBy('created_at','DESC')->get();
+        $items = PrivacyPolicy::orderBy('created_at', 'DESC')->get();
         return view('back.pages.privacypolicy', compact('items'));
     }
 
@@ -30,7 +30,17 @@ class PrivacyPolicyController extends Controller
      */
     public function store(Request $request)
     {
-        PrivacyPolicy::create($request->all());
+        $validatedData = $request->validate([
+            'title' => 'required|string|max:500',
+            'description' => 'required|string|max:65335',
+        ], [
+            'title.required' => 'The title field is required..',
+            'title.max' => 'The title field must not be greater than 500 characters..',
+            'description.required' => 'The description field is required.',
+            'description.max' => 'The description field must not be greater than 65335 characters.',
+        ]);
+
+        PrivacyPolicy::create($validatedData);
         return redirect()->route('admin.privacypolicy.index')->with('success', 'Added succesfully!');
     }
 
@@ -57,9 +67,19 @@ class PrivacyPolicyController extends Controller
      */
     public function update(Request $request, string $id)
     {
+        $validatedData = $request->validate([
+            'title' => 'required|string|max:500',
+            'description' => 'required|string|max:65335',
+        ], [
+            'title.required' => 'The title field is required..',
+            'title.max' => 'The title field must not be greater than 500 characters..',
+            'description.required' => 'The description field is required.',
+            'description.max' => 'The description field must not be greater than 65335 characters.',
+        ]);
+
         $item = PrivacyPolicy::findOrFail($id);
-        $item->update($request->all());
-        return redirect()->route('admin.privacypolicy.index')->with('success','Update succesfully!');
+        $item->update($validatedData);
+        return redirect()->route('admin.privacypolicy.index')->with('success', 'Update succesfully!');
     }
 
     /**
@@ -69,7 +89,7 @@ class PrivacyPolicyController extends Controller
     {
         $item = PrivacyPolicy::findOrFail($id);
         $item->delete();
-        return redirect()->route('admin.privacypolicy.index')->with('success','Delete succesfully!');
+        return redirect()->route('admin.privacypolicy.index')->with('success', 'Delete succesfully!');
 
     }
 }

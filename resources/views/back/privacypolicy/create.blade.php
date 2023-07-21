@@ -18,12 +18,18 @@
                 <div class="mb-3">
                     <label class="form-label" for="title">Title</label>
                     <input class="form-control" name="title" id="title" type="text" placeholder="Title" />
+                    @error('title')
+                        <div><small class="text-danger">{{ $message }}</small></div>
+                    @enderror
                 </div>
                 <div class="mb-3">
                     <label class="form-label" for="description">Description</label>
                     <div class="min-vh-50">
                         <textarea class="tinymce d-none" id="description" name="description"></textarea>
                     </div>
+                    @error('description')
+                        <div><small class="text-danger">{{ $message }}</small></div>
+                    @enderror
                 </div>
 
                 <button class="btn btn-primary" type="submit">Add</button>

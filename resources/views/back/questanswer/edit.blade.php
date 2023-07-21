@@ -19,15 +19,21 @@
                 <div class="mb-3">
                     <label class="form-label" for="question">Question</label>
                     <input class="form-control" name="question" id="question" type="text" placeholder="Name" value="{{$item->question}}" />
+                    @error('question')
+                    <div><small class="text-danger">{{ $message }}</small></div>
+                    @enderror
                 </div>
                 <div class="mb-3">
                     <label class="form-label" for="answer">Answer</label>
                     <div class="min-vh-50">
                         <textarea class="tinymce d-none" id="answer" name="answer">{{$item->answer}}</textarea>
                     </div>
+                    @error('answer')
+                    <div><small class="text-danger">{{ $message }}</small></div>
+                    @enderror
                 </div>
 
-                <button class="btn btn-primary">Update</button>
+                <button class="btn btn-primary mt-3">Update</button>
             </form>
         </div>
     </div>

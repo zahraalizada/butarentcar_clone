@@ -17,16 +17,24 @@
                 @csrf
                 <div class="mb-3">
                     <label class="form-label" for="question">Question</label>
-                    <input class="form-control" name="question" id="question" type="text" placeholder="Name" />
+                    <input class="form-control e-mb1" name="question" id="question" type="text" placeholder="Question"/>
+                    @error('question')
+                        <div><small class="text-danger">{{ $message }}</small></div>
+                    @enderror
+
                 </div>
-                <div class="mb-3">
+                <div class="mb-2">
                     <label class="form-label" for="answer">Answer</label>
                     <div class="min-vh-50">
                         <textarea class="tinymce d-none" id="answer" name="answer"></textarea>
                     </div>
                 </div>
+                @error('answer')
+                    <div><small class="text-danger">{{ $message }}</small></div>
+                @enderror
 
-                <button class="btn btn-primary" type="submit">Add</button>
+
+                <button class="btn btn-primary mt-3" type="submit">Add</button>
             </form>
         </div>
     </div>

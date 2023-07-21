@@ -10,7 +10,7 @@
     </div>
     <div class="card">
         <div class="card-header">
-            <h3> Update Question & Answer</h3>
+            <h3> Update Social Link</h3>
         </div>
         <div class="card-body">
             <form action="{{route('admin.social.update',$item->id)}}" method="post">
@@ -18,16 +18,14 @@
                 @method('PUT')
                 <div class="mb-3">
                     <label class="form-label" for="name">Name</label>
-                    <input class="form-control" name="name" id="name" type="text" placeholder="Name" value="{{$item->name}}" />
+                    <input class="form-control" name="name" id="name" type="text" placeholder="Name" value="{{$item->name}}" readonly/>
                 </div>
                 <div class="mb-3">
                     <label class="form-label" for="link">Link</label>
                     <input class="form-control" name="link" id="name" type="text" placeholder="Link" value="{{$item->link}}" />
-                    <div class="mt-2"><a class="mt-2" href="https://fontawesome.com/search?o=r&m=free">Click here</a></div>
-                </div>
-                <div class="mb-3">
-                    <label class="form-label" for="icon">Icon</label>
-                    <input class="form-control" name="icon" id="name" type="text" placeholder="Icon" value="{{$item->icon}}" />
+                    @error('link')
+                        <div><small class="text-danger">{{$message}}</small></div>
+                    @enderror
                 </div>
                 <button class="btn btn-primary">Update</button>
             </form>
