@@ -5,13 +5,12 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class PrivacyPolicy extends Model
+class PrivacyPolicyTranslation extends Model
 {
     use HasFactory;
 
     protected $table = 'privacy_policy';
-
-    public $translatedAttributes  = [
+    protected $fillable = [
         'title',
         'description'
     ];

@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers\Back;
 
+use App\Models\Page;
 use App\Models\Settings;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Str;
 
 class SettingsController extends Controller
 {
@@ -22,7 +24,7 @@ class SettingsController extends Controller
      */
     public function create()
     {
-        return view('back.settings.create');
+        //
     }
 
     /**
@@ -30,8 +32,7 @@ class SettingsController extends Controller
      */
     public function store(Request $request)
     {
-        Settings::create($request->all());
-        return redirect()->route('admin.settings.index')->with('success', 'Added succesfully!');
+        //
     }
 
     /**
@@ -39,8 +40,7 @@ class SettingsController extends Controller
      */
     public function show(string $id)
     {
-        $item = Settings::findOrFail($id);
-        return view('back.settings.show', compact('item'));
+        //
     }
 
     /**
@@ -58,18 +58,34 @@ class SettingsController extends Controller
     public function update(Request $request, string $id)
     {
         $item = Settings::findOrFail($id);
-        $item->update($request->all());
-        return redirect()->route('admin.settings.index')->with('success','Update succesfully!');
+
+        $logoimg = '';
+        if ($request->hasFile('logo_img')) {
+            $logoimg = time() . 'logo' . '.' . $request->file('logo_img')->getClientOriginalExtension();
+            $request->file('logo_img')->move(public_path('uploads'), $logoimg);
+            $logoimg = 'uploads/' . $logoimg;
+        }
+
+        $coverimg = '';
+        if ($request->hasFile('cover_img')) {
+            $coverimg = time() . 'cover' . '.' . $request->file('cover_img')->getClientOriginalExtension();
+            $request->file('cover_img')->move(public_path('uploads'), $coverimg);
+            $coverimg = 'uploads/' . $coverimg;
+        }
+
+        $data = array_merge($request->except(['logo_img', 'cover_img']), ['logo_img' => $logoimg, 'cover_img' => $coverimg]);
+
+        $item->update($data);
+
+        return redirect()->route('admin.settings.index')->with('success', 'Update successfully!');
     }
+
 
     /**
      * Remove the specified resource from storage.
      */
     public function destroy(string $id)
     {
-        $item = Settings::findOrFail($id);
-        $item->delete();
-        return redirect()->route('admin.settings.index')->with('success','Delete succesfully!');
-
+       //
     }
 }

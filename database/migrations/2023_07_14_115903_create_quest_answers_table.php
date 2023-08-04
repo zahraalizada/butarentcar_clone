@@ -6,15 +6,13 @@ use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration
 {
-    /**
-     * Run the migrations.
-     */
+
     public function up(): void
     {
         Schema::create('quest_answer', function (Blueprint $table) {
             $table->id();
-            $table->string('question',500);
-            $table->text('answer');
+//            $table->string('question',500);
+//            $table->text('answer');
             $table->timestamps();
         });
     }

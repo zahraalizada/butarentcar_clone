@@ -17,6 +17,8 @@
     <!-- ===============================================-->
     <!--    Favicons-->
     <!-- ===============================================-->
+
+
     <link rel="apple-touch-icon" sizes="180x180" href="{{asset('back/assets/img/favicons/apple-touch-icon.png')}}">
     <link rel="icon" type="image/png" sizes="32x32" href="{{asset('back/assets/img/favicons/favicon-32x32.png')}}">
     <link rel="icon" type="image/png" sizes="16x16" href="{{asset('back/assets/img/favicons/favicon-16x16.png')}}">
@@ -80,7 +82,7 @@
                 <div class="toggle-icon-wrapper">
                     <button class="btn navbar-toggler-humburger-icon navbar-vertical-toggle" data-bs-toggle="tooltip" data-bs-placement="left" title="Toggle Navigation"><span class="navbar-toggle-icon"><span class="toggle-line"></span></span></button>
                 </div><a class="navbar-brand" href="index.html">
-                    <div class="d-flex align-items-center py-3"><img class="me-2" src="{{asset('back/assets/img/icons/spot-illustrations/falcon.png')}}" alt="" width="40" /><span class="font-sans-serif">falcon</span></div>
+                    <div class="d-flex align-items-center py-3"><img class="me-2" src="{{asset('back/assets/img/icons/spot-illustrations/falcon.png')}}" alt="" width="40" /><span class="font-sans-serif">Buta</span></div>
                 </a>
             </div>
 

@@ -13,12 +13,13 @@
             <h3> Update Currency</h3>
         </div>
         <div class="card-body">
-            <form action="{{route('admin.settings.update',$item->id)}}" method="post">
+            <form action="{{route('admin.settings.update',$item->id)}}" method="post" enctype="multipart/form-data">
                 @csrf
                 @method('PUT')
                 <div class="mb-3">
                     <label class="form-label" for="logo_img">Logo image</label>
-                    <input class="form-control" name="logo_img" id="logo_img" type="text" value="{{$item->logo_img}}" placeholder="Logo image" />
+                    <input type="file" name="logo_img" class="form-control" value="{{$item->logo_img}}"/>
+{{--                    <input class="form-control" name="logo_img" id="logo_img" type="text" value="{{$item->logo_img}}" placeholder="Logo image" />--}}
                 </div>
                 <div class="mb-3">
                     <label class="form-label" for="phone">Phone</label>
@@ -49,9 +50,13 @@
                     <input class="form-control" name="copyright" id="copyright" type="text" value="{{$item->copyright}}" placeholder="copyright" />
                 </div>
                 <div class="mb-3">
-                    <label class="form-label" for="cover_img">cover_img</label>
-                    <input class="form-control" name="cover_img" id="cover_img" type="text" value="{{$item->cover_img}}" placeholder="cover_img" />
+                    <label class="form-label" for="cover_img">Cover image</label>
+                    <input type="file" name="cover_img" class="form-control" value="{{$item->cover_img}}"/>
                 </div>
+{{--                <div class="mb-3">--}}
+{{--                    <label class="form-label" for="cover_img">Cover image</label>--}}
+{{--                    <input class="form-control" name="cover_img" id="cover_img" type="text" value="{{$item->cover_img}}" placeholder="cover_img" />--}}
+{{--                </div>--}}
                 <div class="mb-3">
                     <label class="form-label" for="cover_title">Cover title</label>
                     <input class="form-control" name="cover_title" id="cover_title" type="text" value="{{$item->cover_title}}" placeholder="cover_title" />

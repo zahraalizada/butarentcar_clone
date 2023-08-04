@@ -37,8 +37,8 @@
                         <tbody class="list">
                         @foreach($items as $item)
                             <tr>
-                                <td class="name">{{Str::limit($item->question, 50)}}</td>
-                                <td class="email">{{Str::limit($item->question, 50)}}</td>
+                                <td>{{Str::limit($item->question, 50)}}</td>
+                                <td>{{Str::limit($item->answer, 50)}}</td>
                                 <td class="text-end">
                                     <div class="d-flex align-items-center justify-content-end">
                                         <a href="{{route('admin.questanswer.edit',$item->id)}}" class="btn p-0 ms-2"
