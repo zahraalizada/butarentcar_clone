@@ -9,7 +9,7 @@ class PrivacyPolicyTranslation extends Model
 {
     use HasFactory;
 
-    protected $table = 'privacy_policy';
+    public $timestamps = false;
     protected $fillable = [
         'title',
         'description'

@@ -1,13 +1,7 @@
 @extends('back.layouts.master')
 @section('title', 'Currency')
 @section('content')
-    <div class="card mb-3">
-        <div class="card-body text-end">
-            <a class="btn btn-primary btn-md" href="#">
-                <i class="fas fa-globe me-2"></i> Go Website
-            </a>
-        </div>
-    </div>
+
     <div class="card">
         <div class="card-header">
             <h3> New Currency</h3>
@@ -18,6 +12,10 @@
                 <div class="mb-3">
                     <label class="form-label" for="name">Name</label>
                     <input class="form-control" name="name" id="name" type="text" placeholder="Name" />
+                </div>
+                <div class="mb-3">
+                    <label class="form-label" for="name">Symbol</label>
+                    <input class="form-control" name="symbol" id="symbol" type="text" placeholder="Symbol" />
                 </div>
                 <div class="mb-3">
                     <label class="form-label" for="value">Value</label>

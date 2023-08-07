@@ -1,13 +1,7 @@
 @extends('back.layouts.master')
 @section('title', 'Settings')
 @section('content')
-    <div class="card mb-3">
-        <div class="card-body text-end">
-            <a class="btn btn-primary btn-md" href="#">
-                <i class="fas fa-globe me-2"></i> Go Website
-            </a>
-        </div>
-    </div>
+
     <div class="card">
         <div class="card-header d-flex flex-between-center">
             <h3>Settings</h3>

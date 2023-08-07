@@ -11,16 +11,16 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('quest_answer_translations', function (Blueprint $table) {
+        Schema::create('privacy_policy_translations', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('quest_answer_id')->constrained()->onDelete('cascade');
+            $table->foreignId('privacy_policy_id')->constrained()->onDelete('cascade');
             $table->string('locale');
-            $table->string('question',500);
-            $table->text('answer');
+            $table->string('title',500);
+            $table->text('description');
 
             $table->timestamps();
 
-            $table->unique(['quest_answer_id','locale']);
+            $table->unique(['privacy_policy_id','locale']);
 //            $table->foreign('post_id')->references('id')->on('posts')->onDelete('cascade');
         });
     }
@@ -30,6 +30,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('quest_answer_translations');
+        Schema::dropIfExists('privacy_policy_translations');
     }
 };

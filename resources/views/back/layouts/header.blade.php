@@ -106,7 +106,7 @@
                                 <div class="col-auto navbar-vertical-label">App</div>
                                 <div class="col ps-0"> <hr class="mb-0 navbar-vertical-divider" /> </div>
                             </div>
-                            <a class="nav-link @if(Request::segment(2)=="questanswer") active @endif" href="{{route('admin.questanswer.index')}}" role="button" aria-expanded="false">
+                            <a class="nav-link @if(Request::segment(3)=="questanswer") active @endif" href="{{route('admin.questanswer.index',['locale'=>app()->getLocale()])}}" role="button" aria-expanded="false">
                                 <div class="d-flex align-items-center">
                                     <span class="nav-link-icon">
                                        <span class="fas fa-calendar-alt"></span>
@@ -116,7 +116,8 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link @if(Request::segment(2)=="privacypolicy") active @endif" href="{{route('admin.privacypolicy.index')}}" role="button" aria-expanded="false">
+                            <a class="nav-link @if(Request::segment(3)=="privacypolicy") active @endif"
+                            href="{{route('admin.privacypolicy.index',['locale'=>app()->getLocale()])}}" role="button" aria-expanded="false">
                                 <div class="d-flex align-items-center">
                                     <span class="nav-link-icon">
                                        <span class="fas fa-shield-alt"></span>
@@ -722,3 +723,16 @@
                 }
             </script>
 
+
+            <div class="card mb-3">
+                <div class="card-header d-flex flex-between-center">
+                    <div class="language-switcher">
+                        <a href="{{ route('setLocale', 'en') }}" class='btn btn-sm  {{app()->getLocale()=='en'?'btn-success active':'btn-secondary'}} me-2'>En</a>
+                        <a href="{{ route('setLocale', 'az') }}"  class='btn btn-sm {{app()->getLocale()=='az'?'btn-success active':'btn-secondary'}} me-2'>Az</a>
+                    </div>
+
+                    <a href="#" class="btn btn-primary btn-md" href="#">
+                        <i class="fas fa-globe me-2"></i> Go Website
+                    </a>
+                </div>
+            </div>

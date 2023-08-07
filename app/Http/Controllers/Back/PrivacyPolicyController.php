@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Back;
 
 use App\Models\PrivacyPolicy;
+use App\Models\PrivacyPolicyTranslation;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
@@ -13,6 +14,7 @@ class PrivacyPolicyController extends Controller
      */
     public function index()
     {
+
         $items = PrivacyPolicy::orderBy('created_at', 'DESC')->get();
         return view('back.pages.privacypolicy', compact('items'));
     }

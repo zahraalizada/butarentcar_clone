@@ -4,13 +4,7 @@
     @php
         use Illuminate\Support\Str;
     @endphp
-    <div class="card mb-3">
-        <div class="card-body text-end">
-            <a class="btn btn-primary btn-md" href="#">
-                <i class="fas fa-globe me-2"></i> Go Website
-            </a>
-        </div>
-    </div>
+
     <div class="card">
         <div class="card-header d-flex flex-between-center">
             <h3>Privacy & Policy</h3>
@@ -36,16 +30,17 @@
                         </thead>
                         <tbody class="list">
                         @foreach($items as $item)
+
                             <tr>
                                 <td class="name">{{Str::limit($item->title, 50)}}</td>
                                 <td class="name">{{Str::limit($item->description, 50)}}</td>
                                 <td class="text-end">
-                                    <a href="{{route('admin.privacypolicy.edit',$item->id)}}" class="btn p-0 ms-2"
+                                    <a href="{{route('admin.privacypolicy.edit',['locale'=>app()->getLocale(),'privacypolicy'=>$item->id])}}" class="btn p-0 ms-2"
                                        type="button" data-bs-toggle="tooltip"
                                        data-bs-placement="top" title="Edit">
                                         <span class="text-500 fas fa-edit"></span>
                                     </a>
-                                    <form action="{{route('admin.privacypolicy.destroy',$item->id)}}" method="post"
+                                    <form action="{{route('admin.privacypolicy.destroy',['locale'=>app()->getLocale(),'privacypolicy'=>$item->id])}}" method="post"
                                           type="button" class="btn p-0" onsubmit="return confirm('Delete product?')">
                                         @csrf
                                         @method('DELETE')
