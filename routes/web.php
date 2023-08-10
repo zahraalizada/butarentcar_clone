@@ -1,6 +1,9 @@
 <?php
 
 use App\Http\Controllers\Back\Dashboard;
+use App\Http\Controllers\Front\ContactController;
+use App\Http\Controllers\Front\PrivacyPolicyController;
+use App\Http\Controllers\Front\QuestAnswerController;
 use App\Http\Controllers\Front\Homepage;
 use App\Http\Controllers\LocaleController;
 use Illuminate\Support\Facades\Route;
@@ -8,8 +11,10 @@ use Illuminate\Support\Facades\Session;
 
 require_once "admin.php";
 
-
-Route::get('/', [Homepage::class, 'index']);
+Route::get('/', [Homepage::class, 'index'])->name('esassehife');
+Route::get('/privacy', [PrivacyPolicyController::class, 'index'])->name('mexfilik');
+Route::get('/faq', [QuestAnswerController::class, 'index'])->name('faq');
+Route::get('/contact', [ContactController::class, 'index'])->name('elaqe');
 
 
 Route::get('/locale/{locale}', function ($lang) {

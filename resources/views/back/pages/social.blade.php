@@ -26,6 +26,7 @@
                         <tr>
                             <th class="sort" data-sort="name">Name</th>
                             <th class="sort" data-sort="name">Link</th>
+                            <th class="sort" data-sort="name">Icon</th>
                             <th class="text-end" scope="col">Actions</th>
                         </tr>
                         </thead>
@@ -33,7 +34,8 @@
                         @foreach($items as $item)
                             <tr>
                                 <td>{{Str::limit($item->name, 100)}}</td>
-                                <td>{{Str::limit($item->link, 50)}}</td>
+                                <td>{{Str::limit($item->link, 100)}}</td>
+                                <td>{{Str::limit($item->icon, 100)}}</td>
                                 <td class="text-end">
                                     <div class="d-flex align-items-center justify-content-end">
                                         <a href="{{route('admin.social.edit',$item->id)}}" class="btn p-0 ms-2" type="button" data-bs-toggle="tooltip"

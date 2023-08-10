@@ -138,22 +138,22 @@
                         <a
                             class="nav-link active"
                             aria-current="page"
-                            href="#"
+                            href="{{route('esassehife')}}"
                         >Avtomobil Parkı</a
                         >
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#"
+                        <a class="nav-link" href="{{route('mexfilik')}}"
                         >Məxfilik siyasəti</a
                         >
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#"
+                        <a class="nav-link" href="{{route('faq')}}"
                         >Suallar və Cavablar</a
                         >
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Əlaqə</a>
+                        <a class="nav-link" href="{{route('elaqe')}}">Əlaqə</a>
                     </li>
                     <li class="nav-item ms-0 ms-lg-2 w-25">
                         <select class="form-control d-none d-lg-block">
@@ -169,6 +169,19 @@
             </div>
         </div>
     </nav>
+
+    <div class="bg-light pt-3 pb-2 mt-3">
+        <div class="container bg-light">
+            <nav aria-label="breadcrumb ">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="#">Home</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">Privacy & Policy</li>
+                </ol>
+            </nav>
+        </div>
+    </div>
+
+
 </header>
 <!-- header end -->
 <main>

@@ -14,7 +14,7 @@ class PrivacyPolicy extends Model
     use HasFactory;
     use Translatable;
 
-    protected $table = 'privacy_policy';
+    protected $table = 'privacy_policies';
 
     public $translatedAttributes  = [
         'title',

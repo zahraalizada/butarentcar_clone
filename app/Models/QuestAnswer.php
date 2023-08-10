@@ -14,7 +14,7 @@ class QuestAnswer extends Model
     use HasFactory;
     use Translatable;
 
-    protected $table = 'quest_answer';
+    protected $table = 'quest_answers';
 
     public $translatedAttributes  = [
         'question',
