@@ -21,5 +21,6 @@ class QuestAnswer extends Model
         'answer',
     ];
 
+    protected $with =['translation'];
 
 }

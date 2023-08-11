@@ -38,7 +38,7 @@
                                 <td>{{Str::limit($item->icon, 100)}}</td>
                                 <td class="text-end">
                                     <div class="d-flex align-items-center justify-content-end">
-                                        <a href="{{route('admin.social.edit',$item->id)}}" class="btn p-0 ms-2" type="button" data-bs-toggle="tooltip"
+                                        <a href="{{route('admin.social.edit',['social'=>$item->id,'locale'=>app()->getLocale()])}}" class="btn p-0 ms-2" type="button" data-bs-toggle="tooltip"
                                                 data-bs-placement="top" title="Edit">
                                             <span class="text-500 fas fa-edit"></span>
                                         </a>

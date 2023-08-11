@@ -17,39 +17,13 @@ class SocialController extends Controller
         return view('back.pages.social', compact('items'));
     }
 
-
-    public function create()
-    {
-       //
-    }
-
-
-    public function store(Request $request)
-    {
-       //
-    }
-
-    /**
-     * Display the specified resource.
-     */
-    public function show(string $id)
-    {
-       //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(string $id)
+    public function edit($locale, $id)
     {
         $item = Social::findOrFail($id);
-        return view('back.social.edit', compact('item'));
+        return view('back.social.edit', compact('item','locale'));
     }
 
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, string $id)
+    public function update(Request $request,$locale, $id)
     {
         $validatedData = $request->validate([
             'link' => 'nullable|string|max:500',
@@ -58,12 +32,10 @@ class SocialController extends Controller
         ]);
 
         $item = Social::findOrFail($id);
+
         $item->update($validatedData);
-        return redirect()->route('admin.social.index')->with('success','Update succesfully!');
+        return redirect()->route('admin.social.index',$locale)->with('success','Update succesfully!');
     }
 
-    public function destroy(string $id)
-    {
-       //
-    }
+
 }

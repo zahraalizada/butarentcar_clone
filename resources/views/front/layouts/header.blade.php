@@ -37,19 +37,19 @@
         <div
             class="container d-flex align-items-center justify-content-between"
         >
-            <ul class="navbar-nav mb-2 mb-lg-0 flex-row">
-                <li class="nav-item">
-                    <a
-                        class="nav-link active me-3 me-lg-0"
-                        aria-current="page"
-                        href="#"
-                    >Az</a
-                    >
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link me-3 me-lg-0" href="#">En</a>
-                </li>
-            </ul>
+            <div class="language-switcher">
+                <a href="{{ route('setLocale', 'en') }}" class='btn btn-sm  {{app()->getLocale()=='en'?'btn-success active':'btn-secondary'}} me-2'>En</a>
+                <a href="{{ route('setLocale', 'az') }}"  class='btn btn-sm {{app()->getLocale()=='az'?'btn-success active':'btn-secondary'}} me-2'>Az</a>
+            </div>
+
+{{--            <ul class="navbar-nav mb-2 mb-lg-0 flex-row">--}}
+{{--                <li class="nav-item">--}}
+{{--                    <a class="nav-link active me-3 me-lg-0" aria-current="page" href="#" >Az</a >--}}
+{{--                </li>--}}
+{{--                <li class="nav-item">--}}
+{{--                    <a class="nav-link me-3 me-lg-0" href="{{ route('setLocale', 'en') }}">En</a>--}}
+{{--                </li>--}}
+{{--            </ul>--}}
             <ul class="navbar-nav mb-2 mb-lg-0 flex-row">
                 <li class="nav-item">
                     <a class="nav-link" href="#">
@@ -135,25 +135,16 @@
             <div class="collapse navbar-collapse" id="navbarText">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0 w-100">
                     <li class="nav-item">
-                        <a
-                            class="nav-link active"
-                            aria-current="page"
-                            href="{{route('esassehife')}}"
-                        >Avtomobil Parkı</a
-                        >
+                        <a class="nav-link @if(Request::segment(2)=="") active text-danger @endif" href="{{route('esassehife',['locale'=>app()->getLocale()])}}">Avtomobil Parkı</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{{route('mexfilik')}}"
-                        >Məxfilik siyasəti</a
-                        >
+                        <a class="nav-link @if(Request::segment(2)=="privacy") active text-danger @endif" href="{{route('mexfilik',['locale'=>app()->getLocale()])}}"> Məxfilik siyasəti</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{{route('faq')}}"
-                        >Suallar və Cavablar</a
-                        >
+                        <a class="nav-link @if(Request::segment(2)=="faq") active text-danger @endif" href="{{route('faq',['locale'=>app()->getLocale()])}}"> Suallar və Cavablar</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{{route('elaqe')}}">Əlaqə</a>
+                        <a class="nav-link @if(Request::segment(2)=="contact") active text-danger @endif" href="{{route('elaqe',['locale'=>app()->getLocale()])}}">Əlaqə</a>
                     </li>
                     <li class="nav-item ms-0 ms-lg-2 w-25">
                         <select class="form-control d-none d-lg-block">

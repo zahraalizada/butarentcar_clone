@@ -34,11 +34,11 @@
                                 <td>{{$item->value}}</td>
                                 <td class="text-end">
                                     <div class="d-flex align-items-center justify-content-end">
-                                        <a href="{{route('admin.currency.edit',$item->id)}}" class="btn p-0 ms-2" type="button" data-bs-toggle="tooltip"
+                                        <a href="{{route('admin.currency.edit',['currency'=>$item->id])}}" class="btn p-0 ms-2" type="button" data-bs-toggle="tooltip"
                                                 data-bs-placement="top" title="Edit">
                                             <span class="text-500 fas fa-edit"></span>
                                         </a>
-                                        <form action="{{route('admin.currency.destroy',$item->id)}}" method="post" type="button" class="btn p-0" onsubmit="return confirm('Delete product?')">
+                                        <form action="{{route('admin.currency.destroy',['currency'=>$item->id])}}" method="post" type="button" class="btn p-0" onsubmit="return confirm('Delete product?')">
                                             @csrf
                                             @method('DELETE')
                                             <button class="btn p-0 ms-2" data-bs-toggle="tooltip"

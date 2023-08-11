@@ -8,7 +8,6 @@
     <div class="card">
         <div class="card-header d-flex flex-between-center">
             <h3>Question & Answer</h3>
-            <a href="{{route('admin.questanswer.create')}}" class="btn btn-primary btn-sm ">Add new </a>
         </div>
 
         @if(Session::has('success'))
@@ -40,16 +39,6 @@
                                            data-bs-placement="top" title="Edit">
                                             <span class="text-500 fas fa-edit"></span>
                                         </a>
-                                        <form action="{{route('admin.questanswer.destroy',['locale'=>app()->getLocale(),'questanswer'=>$item->id])}}" method="post"
-                                              type="button" class="btn p-0"
-                                              onsubmit="return confirm('Delete product?')">
-                                            @csrf
-                                            @method('DELETE')
-                                            <button class="btn p-0 ms-2" data-bs-toggle="tooltip"
-                                                    data-bs-placement="top" title="Delete">
-                                                <span class="text-500 fas fa-trash-alt"></span>
-                                            </button>
-                                        </form>
                                     </div>
                                 </td>
                             </tr>

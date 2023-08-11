@@ -19,15 +19,12 @@ Route::group(['middleware' => 'setlocale', 'prefix' => '{locale?}'], function ()
         Route::resource('driverstatus', DriverStatusController::class);
         Route::resource('cars', CarsController::class);
         Route::resource('cardetails', CardetailsController::class);
+        Route::resource('social', SocialController::class);
+        Route::resource('currency', CurrencyController::class);
     });
 
 });
 
-    Route::prefix('admin')->name('admin.')->group(function () {
-        Route::resource('social', SocialController::class);
-        Route::resource('currency', CurrencyController::class);
-
-    });
 
 
 

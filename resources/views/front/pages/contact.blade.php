@@ -28,23 +28,7 @@
                 </div>
             </div>
 
-            <br><br><br><br><br><br>
-            Telefonlar
 
-
-            WhatsApp
-            +994 502091072
-            Написать в WhatsApp
-
-            İş vaxtları
-
-            10:00 - 22:00
-
-            Email:
-
-            info@butarentalcars.az
-
-            Ünvan
         </div>
     </div>
 @endsection

@@ -2,13 +2,6 @@
 @section('title', 'Panel')
 @section('content')
 
-    <div class="card mb-3">
-        <div class="card-body text-end">
-            <a class="btn btn-primary btn-md" href="#">
-                <i class="fas fa-globe me-2"></i> Go Website
-            </a>
-        </div>
-    </div>
 
     <div class="row g-3 mb-3">
         <div class="col-md-6 col-xxl-3">

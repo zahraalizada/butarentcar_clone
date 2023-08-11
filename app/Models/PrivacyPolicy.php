@@ -20,4 +20,6 @@ class PrivacyPolicy extends Model
         'title',
         'description'
     ];
+
+    protected $with =['translation'];
 }

@@ -8,7 +8,6 @@
     <div class="card">
         <div class="card-header d-flex flex-between-center">
             <h3>Privacy & Policy</h3>
-            <a href="{{route('admin.privacypolicy.create')}}" class="btn btn-primary btn-sm ">Add new </a>
         </div>
 
         @if(Session::has('success'))
@@ -30,42 +29,31 @@
                         </thead>
                         <tbody class="list">
                         @foreach($items as $item)
-
                             <tr>
                                 <td class="name">{{Str::limit($item->title, 50)}}</td>
                                 <td class="name">{{Str::limit($item->description, 50)}}</td>
                                 <td class="text-end">
-                                    <a href="{{route('admin.privacypolicy.edit',['locale'=>app()->getLocale(),'privacypolicy'=>$item->id])}}" class="btn p-0 ms-2"
+                                    <a href="{{route('admin.privacypolicy.edit',['privacypolicy'=>$item->id,'locale'=>app()->getLocale(),])}}"
+                                       class="btn p-0 ms-2"
                                        type="button" data-bs-toggle="tooltip"
                                        data-bs-placement="top" title="Edit">
                                         <span class="text-500 fas fa-edit"></span>
                                     </a>
-                                    <form action="{{route('admin.privacypolicy.destroy',['locale'=>app()->getLocale(),'privacypolicy'=>$item->id])}}" method="post"
-                                          type="button" class="btn p-0" onsubmit="return confirm('Delete product?')">
-                                        @csrf
-                                        @method('DELETE')
-                                        <button class="btn p-0 ms-2" data-bs-toggle="tooltip"
-                                                data-bs-placement="top" title="Delete">
-                                            <span class="text-500 fas fa-trash-alt"></span>
-                                        </button>
-                                    </form>
+                                </td>
+                            </tr>
+                        @endforeach
+                        </tbody>
+                    </table>
                 </div>
-                </td>
-                </tr>
-                @endforeach
-
-                </tbody>
-                </table>
-            </div>
-            <div class="d-flex justify-content-center mt-3">
-                <button class="btn btn-sm btn-falcon-default me-1" type="button" title="Previous"
-                        data-list-pagination="prev"><span class="fas fa-chevron-left"></span></button>
-                <ul class="pagination mb-0"></ul>
-                <button class="btn btn-sm btn-falcon-default ms-1" type="button" title="Next"
-                        data-list-pagination="next"><span class="fas fa-chevron-right"> </span></button>
+                <div class="d-flex justify-content-center mt-3">
+                    <button class="btn btn-sm btn-falcon-default me-1" type="button" title="Previous"
+                            data-list-pagination="prev"><span class="fas fa-chevron-left"></span></button>
+                    <ul class="pagination mb-0"></ul>
+                    <button class="btn btn-sm btn-falcon-default ms-1" type="button" title="Next"
+                            data-list-pagination="next"><span class="fas fa-chevron-right"> </span></button>
+                </div>
             </div>
         </div>
-    </div>
     </div>
 @endsection
 

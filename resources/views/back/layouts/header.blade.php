@@ -127,7 +127,7 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link @if(Request::segment(2)=="social") active @endif" href="{{route('admin.social.index')}}" role="button" aria-expanded="false">
+                            <a class="nav-link @if(Request::segment(3)=="social") active @endif" href="{{route('admin.social.index',['locale'=>app()->getLocale()])}}" role="button" aria-expanded="false">
                                 <div class="d-flex align-items-center">
                                     <span class="nav-link-icon">
                                        <span class="fas fa-icons"></span>
@@ -147,7 +147,7 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link @if(Request::segment(2)=="currency") active @endif" href="{{route('admin.currency.index')}}" role="button" aria-expanded="false">
+                            <a class="nav-link @if(Request::segment(3)=="currency") active @endif" href="{{route('admin.currency.index',['locale'=>app()->getLocale()])}}" role="button" aria-expanded="false">
                                 <div class="d-flex align-items-center">
                                     <span class="nav-link-icon">
                                        <span class="fas fa-coins"></span>

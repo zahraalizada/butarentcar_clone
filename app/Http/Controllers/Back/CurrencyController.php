@@ -34,14 +34,6 @@ class CurrencyController extends Controller
         return redirect()->route('admin.currency.index')->with('success', 'Added succesfully!');
     }
 
-    /**
-     * Display the specified resource.
-     */
-    public function show(string $id)
-    {
-        $item = Currency::findOrFail($id);
-        return view('back.currency.show', compact('item'));
-    }
 
     /**
      * Show the form for editing the specified resource.

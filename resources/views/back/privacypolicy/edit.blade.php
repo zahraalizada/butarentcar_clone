@@ -1,19 +1,10 @@
 @extends('back.layouts.master')
 @section('title', 'Privacy Policy')
 @section('content')
-    <div class="card mb-3">
-        <div class="card-body text-end">
-            <a class="btn btn-primary btn-md" href="#">
-                <i class="fas fa-globe me-2"></i> Go Website
-            </a>
-        </div>
-    </div>
+
     <div class="card">
-        <div class="card-header">
-            <h3> Update Title & Description</h3>
-        </div>
         <div class="card-body">
-            <form action="{{route('admin.privacypolicy.update',$item->id)}}" method="post">
+            <form action="{{route('admin.privacypolicy.update',['privacypolicy'=>$item->id,'locale'=>app()->getLocale(),])}}" method="post">
                 @csrf
                 @method('PUT')
                 <div class="mb-3">
