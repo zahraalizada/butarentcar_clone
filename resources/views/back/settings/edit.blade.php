@@ -1,25 +1,18 @@
 @extends('back.layouts.master')
 @section('title', 'Currency')
 @section('content')
-    <div class="card mb-3">
-        <div class="card-body text-end">
-            <a class="btn btn-primary btn-md" href="#">
-                <i class="fas fa-globe me-2"></i> Go Website
-            </a>
-        </div>
-    </div>
+
     <div class="card">
         <div class="card-header">
-            <h3> Update Currency</h3>
+            <h3> Update Setting</h3>
         </div>
         <div class="card-body">
-            <form action="{{route('admin.settings.update',$item->id)}}" method="post" enctype="multipart/form-data">
+            <form action="{{route('admin.settings.update',['setting'=>$item->id,'locale'=>app()->getLocale()])}}" method="post" enctype="multipart/form-data">
                 @csrf
                 @method('PUT')
                 <div class="mb-3">
                     <label class="form-label" for="logo_img">Logo image</label>
                     <input type="file" name="logo_img" class="form-control" value="{{$item->logo_img}}"/>
-{{--                    <input class="form-control" name="logo_img" id="logo_img" type="text" value="{{$item->logo_img}}" placeholder="Logo image" />--}}
                 </div>
                 <div class="mb-3">
                     <label class="form-label" for="phone">Phone</label>

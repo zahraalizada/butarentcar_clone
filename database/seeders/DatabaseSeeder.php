@@ -19,7 +19,8 @@ class DatabaseSeeder extends Seeder
 //        $this->call([PrivacyPolicyTranslationSeeder::class]);
 //        $this->call([QuestAnswerSeeder::class]);
 //        $this->call([QuestAnswerTranslationSeeder::class]);
-        $this->call([SettingSeeder::class]);
+//        $this->call([DriverStatusSeeder::class]);
+//        $this->call([SettingSeeder::class]);
 
     }
 }

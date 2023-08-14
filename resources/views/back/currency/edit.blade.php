@@ -7,7 +7,7 @@
             <h3> Update Currency</h3>
         </div>
         <div class="card-body">
-            <form action="{{route('admin.currency.update',$item->id)}}" method="post">
+            <form action="{{route('admin.currency.update',['currency'=>$item->id,'locale'=>app()->getLocale()])}}" method="post">
                 @csrf
                 @method('PUT')
                 <div class="mb-3">

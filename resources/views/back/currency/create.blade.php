@@ -7,7 +7,7 @@
             <h3> New Currency</h3>
         </div>
         <div class="card-body">
-            <form action="{{route('admin.currency.store')}}" method="post">
+            <form action="{{route('admin.currency.store',['locale'=>app()->getLocale()])}}" method="post">
                 @csrf
                 <div class="mb-3">
                     <label class="form-label" for="name">Name</label>

@@ -21,7 +21,6 @@
                         <thead class="bg-200 text-900">
                         <tr>
                             <th class="sort" data-sort="name">Phone</th>
-                            <th class="sort" data-sort="name">Phone wp</th>
                             <th class="sort" data-sort="name">Email</th>
                             <th class="sort" data-sort="name">Address</th>
                             <th class="sort" data-sort="name">Hours</th>
@@ -35,7 +34,6 @@
                         @foreach($items as $item)
                             <tr>
                                 <td>{{$item->phone}}</td>
-                                <td>{{$item->phone_wp}}</td>
                                 <td>{{$item->email}}</td>
                                 <td>{{$item->address}}</td>
                                 <td>{{$item->hours}}</td>
@@ -43,7 +41,7 @@
                                 <td>{{$item->cover_title}}</td>
                                 <td>{{$item->cover_description}}</td>
                                 <td class="text-end">
-                                        <a href="{{route('admin.settings.edit',$item->id)}}" class="btn p-0 ms-2" type="button" data-bs-toggle="tooltip"
+                                        <a href="{{route('admin.settings.edit',['setting'=>$item->id,'locale'=>app()->getLocale()])}}" class="btn p-0 ms-2" type="button" data-bs-toggle="tooltip"
                                                 data-bs-placement="top" title="Edit">
                                             <span class="text-500 fas fa-edit"></span>
                                         </a>

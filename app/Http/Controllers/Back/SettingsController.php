@@ -10,52 +10,20 @@ use Illuminate\Support\Str;
 
 class SettingsController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
+
     public function index()
     {
         $items = Settings::orderBy('created_at','DESC')->get();
         return view('back.pages.settings', compact('items'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     */
-    public function store(Request $request)
-    {
-        //
-    }
-
-    /**
-     * Display the specified resource.
-     */
-    public function show(string $id)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(string $id)
+    public function edit(string $locale,$id)
     {
         $item = Settings::findOrFail($id);
-        return view('back.settings.edit', compact('item'));
+        return view('back.settings.edit', compact('item','locale'));
     }
 
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, string $id)
+    public function update(Request $request, $locale, $id)
     {
         $item = Settings::findOrFail($id);
 
@@ -77,15 +45,7 @@ class SettingsController extends Controller
 
         $item->update($data);
 
-        return redirect()->route('admin.settings.index')->with('success', 'Update successfully!');
+        return redirect()->route('admin.settings.index',$locale)->with('success', 'Update successfully!');
     }
 
-
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(string $id)
-    {
-       //
-    }
 }
