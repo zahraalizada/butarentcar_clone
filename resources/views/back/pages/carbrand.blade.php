@@ -1,11 +1,11 @@
 @extends('back.layouts.master')
-@section('title', 'Cars')
+@section('title', 'Car Brands')
 @section('content')
 
     <div class="card">
         <div class="card-header d-flex flex-between-center">
-            <h3>Cars</h3>
-            <a href="{{route('admin.cars.create',['locale'=>app()->getLocale()])}}" class="btn btn-primary btn-sm ">Add new </a>
+            <h3>Car Brands</h3>
+            <a href="{{route('admin.carbrand.create',['locale'=>app()->getLocale()])}}" class="btn btn-primary btn-sm ">Add new </a>
         </div>
 
         @if(Session::has('success'))
@@ -21,10 +21,7 @@
                         <thead class="bg-200 text-900">
                         <tr>
                             <th class="sort" data-sort="name">Name</th>
-                            <th class="sort" data-sort="name">Price</th>
-                            <th class="sort" data-sort="name">Brand</th>
-                            <th class="sort" data-sort="name">Driver status</th>
-                            <th class="sort" data-sort="name">Year</th>
+                            <th class="sort" data-sort="name">Icon</th>
                             <th class="text-end" scope="col">Actions</th>
                         </tr>
                         </thead>
@@ -32,22 +29,14 @@
                         @foreach($items as $item)
                             <tr>
                                 <td>{{$item->name}}</td>
-                                <td>{{$item->price}}</td>
-                                <td>{{$item->brand}}</td>
-                                <td>{{$item->withDriverStatus->name}}</td>
-                                <td>YY</td>
+                                <td>{{$item->icon}}</td>
                                 <td class="text-end">
                                     <div class="d-flex align-items-center justify-content-end">
-
-                                        <a href="{{route('admin.cars.edit',['car'=>$item->id,'locale'=>app()->getLocale()])}}"
-                                           class="btn p-0 ms-2" type="button" data-bs-toggle="tooltip"
-                                           data-bs-placement="top" title="Edit">
+                                        <a href="{{route('admin.carbrand.edit',['carbrand'=>$item->id,'locale'=>app()->getLocale()])}}" class="btn p-0 ms-2" type="button" data-bs-toggle="tooltip"
+                                                data-bs-placement="top" title="Edit">
                                             <span class="text-500 fas fa-edit"></span>
                                         </a>
-                                        <form
-                                            action="{{route('admin.cars.destroy',['car'=>$item->id,'locale'=>app()->getLocale()])}}"
-                                            method="post" type="button" class="btn p-0"
-                                            onsubmit="return confirm('Delete product?')">
+                                        <form action="{{route('admin.carbrand.destroy',['carbrand'=>$item->id,'locale'=>app()->getLocale()])}}" method="post" type="button" class="btn p-0" onsubmit="return confirm('Delete product?')">
                                             @csrf
                                             @method('DELETE')
                                             <button class="btn p-0 ms-2" data-bs-toggle="tooltip"

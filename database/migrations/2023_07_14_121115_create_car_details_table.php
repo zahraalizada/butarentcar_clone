@@ -13,22 +13,20 @@ return new class extends Migration
     {
         Schema::create('car_details', function (Blueprint $table) {
             $table->id();
-            $table->string('img',500);
-            $table->string('production_year');
+            $table->string('car_id');
+            $table->string('img');
+            $table->string('year');
             $table->string('gearbox');
-            $table->string('engine_power');
-            $table->string('climate_status');
-            $table->string('number_of_doors');
-            $table->string('number_of_seats');
-            $table->string('type_of_seats');
+            $table->string('engine');
+            $table->string('freezer');
+            $table->string('door');
+            $table->string('person');
+            $table->string('seat');
             $table->string('baggage');
             $table->timestamps();
         });
     }
 
-    /**
-     * Reverse the migrations.
-     */
     public function down(): void
     {
         Schema::dropIfExists('car_details');

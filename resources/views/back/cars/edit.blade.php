@@ -13,49 +13,72 @@
             <h3> Update Cars</h3>
         </div>
         <div class="card-body">
-            <form action="{{route('admin.cars.update',$item->id)}}" method="post">
+            <form action="{{route('admin.cars.update',['car'=>$item->id,'locale'=>app()->getLocale()])}}" method="post">
                 @csrf
                 @method('PUT')
 
+                <h5>Main Details</h5>
                 <div class="mb-3">
-                    <label class="form-label" for="car_name">Car Name</label>
-                    <input class="form-control" name="car_name" id="car_name" type="text" placeholder="car_name" value="{{$item->car_name}}" />
+                    <label class="form-label" for="brand">Car Brand</label>
+                    <input class="form-control" name="brand" id="brand" type="text" placeholder="Car brand"  value="{{$item->brand}}"/>
                 </div>
                 <div class="mb-3">
-                    <label class="form-label" for="car_logo">Car logo</label>
-                    <input class="form-control" name="car_logo" id="car_logo" type="text" placeholder="Car logo" value="{{$item->car_logo}}" />
+                    <label class="form-label" for="name">Car Name</label>
+                    <input class="form-control" name="name" id="name" type="text" placeholder="Car name" value="{{$item->name}}"/>
                 </div>
                 <div class="mb-3">
                     <label class="form-label" for="price">Price</label>
-                    <input class="form-control" name="price" id="price" type="text" placeholder="Price" value="{{$item->price}}" />
+                    <input class="form-control" name="price" id="price" type="text" placeholder="Price" value="{{$item->price}}"/>
                 </div>
                 <div class="mb-3">
-                    <label class="form-label" for="user_fullname">User fullname</label>
-                    <input class="form-control" name="user_fullname" id="user_fullname" type="text" placeholder="User fullname" value="{{$item->user_fullname}}" />
+                    <label class="form-label" for="driver_status_id">Driver status </label>
+                    <select class="form-select">
+                        @foreach($driverstatus as $status)
+                            <option value="{{$status->id}}" @if ($status->id == $item->driver_status_id) selected @endif>{{$status->name}}</option>
+                        @endforeach
+                    </select>
+                </div>
+
+                <h5>Extra Details</h5>
+                <div class="mb-3">
+                    <label class="form-label" for="year">Year</label>
+                    <input class="form-control" name="year" id="year" type="text"
+                           placeholder="Year" value="year" />
                 </div>
                 <div class="mb-3">
-                    <label class="form-label" for="user_email">User email</label>
-                    <input class="form-control" name="user_email" id="user_email" type="text" placeholder="User email" value="{{$item->user_email}}" />
+                    <label class="form-label" for="gearbox">Gearbox</label>
+                    <input class="form-control" name="gearbox" id="gearbox" type="text"
+                           placeholder="Gearbox" value="gear"/>
                 </div>
                 <div class="mb-3">
-                    <label class="form-label" for="user_phone">User phone</label>
-                    <input class="form-control" name="user_phone" id="user_phone" type="text" placeholder="User phone" value="{{$item->user_phone}}" />
+                    <label class="form-label" for="engine">Engine</label>
+                    <input class="form-control" name="engine" id="engine" type="text"
+                           placeholder="Engine" value="engine"/>
                 </div>
                 <div class="mb-3">
-                    <label class="form-label" for="price">Place reception</label>
-                    <input class="form-control" name="place_reception" id="place_reception" type="text" placeholder="Place reception" value="{{$item->place_reception}}" />
+                    <label class="form-label" for="freezer">Freezer</label>
+                    <input class="form-control" name="freezer" id="freezer" type="text"
+                           placeholder="Freezer" value="freezer"/>
                 </div>
                 <div class="mb-3">
-                    <label class="form-label" for="date_of_addmision">Date of addmision</label>
-                    <input class="form-control" name="date_of_addmision" id="date_of_addmision" type="text" placeholder="Date of addmision" value="{{$item->date_of_addmision}}" />
+                    <label class="form-label" for="door">Door</label>
+                    <input class="form-control" name="door" id="door" type="text"
+                           placeholder="Door" value="door"/>
                 </div>
                 <div class="mb-3">
-                    <label class="form-label" for="date_of_return">Date of return</label>
-                    <input class="form-control" name="date_of_return" id="date_of_return" type="text" placeholder="Date of return" value="{{$item->date_of_return}}" />
+                    <label class="form-label" for="person">Person</label>
+                    <input class="form-control" name="person" id="person" type="text"
+                           placeholder="Person" value="person"/>
                 </div>
                 <div class="mb-3">
-                    <label class="form-label" for="driver_status_id">Driver status id</label>
-                    <input class="form-control" name="driver_status_id" id="driver_status_id" type="text" placeholder="Driver status id" value="{{$item->driver_status_id}}" />
+                    <label class="form-label" for="seat">Seat</label>
+                    <input class="form-control" name="seat" id="seat" type="text"
+                           placeholder="Seat"  value="seat"/>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label" for="baggage">Baggage</label>
+                    <input class="form-control" name="baggage" id="baggage" type="text"
+                           placeholder="Baggage"  value="baggage"/>
                 </div>
 
                 <button class="btn btn-primary">Update</button>

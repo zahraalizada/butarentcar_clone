@@ -1,59 +1,76 @@
 @extends('back.layouts.master')
-@section('title', 'Cars')
+@section('title', 'New Car')
 @section('content')
-    <div class="card mb-3">
-        <div class="card-body text-end">
-            <a class="btn btn-primary btn-md" href="#">
-                <i class="fas fa-globe me-2"></i> Go Website
-            </a>
-        </div>
-    </div>
     <div class="card">
         <div class="card-header">
-            <h3> New Cars</h3>
+            <h3> New Car</h3>
+
         </div>
         <div class="card-body">
-            <form action="{{route('admin.cars.store')}}" method="post">
+            <form action="{{route('admin.cars.store',['locale'=>app()->getLocale()])}}" method="post">
                 @csrf
+                <h5>Main Details</h5>
                 <div class="mb-3">
-                    <label class="form-label" for="car_name">Car Name</label>
-                    <input class="form-control" name="car_name" id="car_name" type="text" placeholder="car_name" />
+                    <label class="form-label" for="brand">Car Brand</label>
+                    <input class="form-control" name="brand" id="brand" type="text" placeholder="Car brand"/>
                 </div>
                 <div class="mb-3">
-                    <label class="form-label" for="car_logo">Car logo</label>
-                    <input class="form-control" name="car_logo" id="car_logo" type="text" placeholder="Car logo" />
+                    <label class="form-label" for="name">Car Name</label>
+                    <input class="form-control" name="name" id="name" type="text" placeholder="Car name"/>
                 </div>
                 <div class="mb-3">
                     <label class="form-label" for="price">Price</label>
-                    <input class="form-control" name="price" id="price" type="text" placeholder="Price" />
+                    <input class="form-control" name="price" id="price" type="text" placeholder="Price"/>
                 </div>
                 <div class="mb-3">
-                    <label class="form-label" for="user_fullname">User fullname</label>
-                    <input class="form-control" name="user_fullname" id="user_fullname" type="text" placeholder="User fullname" />
+                    <label class="form-label" for="driver_status_id">Driver status </label>
+                    <select class="form-select">
+                        @foreach($driverstatus as $status)
+                            <option value="{{$status->id}}">{{$status->name}}</option>
+                        @endforeach
+                    </select>
+                </div>
+
+                <h5>Extra Details</h5>
+                <div class="mb-3">
+                    <label class="form-label" for="year">Year</label>
+                    <input class="form-control" name="year" id="year" type="text"
+                           placeholder="Year"/>
                 </div>
                 <div class="mb-3">
-                    <label class="form-label" for="user_email">User email</label>
-                    <input class="form-control" name="user_email" id="user_email" type="text" placeholder="User email" />
+                    <label class="form-label" for="gearbox">Gearbox</label>
+                    <input class="form-control" name="gearbox" id="gearbox" type="text"
+                           placeholder="Gearbox"/>
                 </div>
                 <div class="mb-3">
-                    <label class="form-label" for="user_phone">User phone</label>
-                    <input class="form-control" name="user_phone" id="user_phone" type="text" placeholder="User phone" />
+                    <label class="form-label" for="engine">Engine</label>
+                    <input class="form-control" name="engine" id="engine" type="text"
+                           placeholder="Engine"/>
                 </div>
                 <div class="mb-3">
-                    <label class="form-label" for="price">Place reception</label>
-                    <input class="form-control" name="place_reception" id="place_reception" type="text" placeholder="Place reception" />
+                    <label class="form-label" for="freezer">Freezer</label>
+                    <input class="form-control" name="freezer" id="freezer" type="text"
+                           placeholder="Freezer"/>
                 </div>
                 <div class="mb-3">
-                    <label class="form-label" for="date_of_addmision">Date of addmision</label>
-                    <input class="form-control" name="date_of_addmision" id="date_of_addmision" type="text" placeholder="Date of addmision" />
+                    <label class="form-label" for="door">Door</label>
+                    <input class="form-control" name="door" id="door" type="text"
+                           placeholder="Door"/>
                 </div>
                 <div class="mb-3">
-                    <label class="form-label" for="date_of_return">Date of return</label>
-                    <input class="form-control" name="date_of_return" id="date_of_return" type="text" placeholder="Date of return" />
+                    <label class="form-label" for="person">Person</label>
+                    <input class="form-control" name="person" id="person" type="text"
+                           placeholder="Person"/>
                 </div>
                 <div class="mb-3">
-                    <label class="form-label" for="driver_status_id">Driver status id</label>
-                    <input class="form-control" name="driver_status_id" id="driver_status_id" type="text" placeholder="Driver status id" />
+                    <label class="form-label" for="seat">Seat</label>
+                    <input class="form-control" name="seat" id="seat" type="text"
+                           placeholder="Seat"/>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label" for="baggage">Baggage</label>
+                    <input class="form-control" name="baggage" id="baggage" type="text"
+                           placeholder="Baggage"/>
                 </div>
 
                 <button class="btn btn-primary mt-3" type="submit">Add</button>

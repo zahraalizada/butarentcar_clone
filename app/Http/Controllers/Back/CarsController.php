@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Back;
 
 use App\Models\Cars;
+use App\Models\DriverStatus;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
@@ -13,7 +14,8 @@ class CarsController extends Controller
      */
     public function index()
     {
-        $items = Cars::orderBy('created_at','DESC')->get();
+        $items = Cars::with('withDriverStatus', 'carDetail')->orderBy('created_at', 'DESC')->get();
+
         return view('back.pages.cars', compact('items'));
     }
 
@@ -22,34 +24,22 @@ class CarsController extends Controller
      */
     public function create()
     {
-        return view('back.cars.create');
+        $driverstatus = DriverStatus::orderBy('created_at', 'DESC')->get();
+        return view('back.cars.create',compact('driverstatus'));
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
+
     public function store(Request $request)
     {
         Cars::create($request->all());
         return redirect()->route('admin.cars.index')->with('success', 'Added succesfully!');
     }
 
-    /**
-     * Display the specified resource.
-     */
-    public function show(string $id)
+    public function edit($locale, $id)
     {
+        $driverstatus = DriverStatus::orderBy('created_at', 'DESC')->get();
         $item = Cars::findOrFail($id);
-        return view('back.cars.show', compact('item'));
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(string $id)
-    {
-        $item = Cars::findOrFail($id);
-        return view('back.cars.edit', compact('item'));
+        return view('back.cars.edit', compact('item','locale','driverstatus'));
     }
 
     /**
@@ -59,7 +49,7 @@ class CarsController extends Controller
     {
         $item = Cars::findOrFail($id);
         $item->update($request->all());
-        return redirect()->route('admin.cars.index')->with('success','Update succesfully!');
+        return redirect()->route('admin.cars.index')->with('success', 'Update succesfully!');
     }
 
     /**
@@ -69,7 +59,7 @@ class CarsController extends Controller
     {
         $item = Cars::findOrFail($id);
         $item->delete();
-        return redirect()->route('admin.cars.index')->with('success','Delete succesfully!');
+        return redirect()->route('admin.cars.index')->with('success', 'Delete succesfully!');
 
     }
 }

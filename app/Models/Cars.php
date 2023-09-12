@@ -11,15 +11,17 @@ class Cars extends Model
 
     protected $table = 'cars';
     protected $fillable = [
-        'car_name',
-        'car_logo',
+        'name',
         'price',
-        'user_fullname',
-        'user_email',
-        'user_phone',
-        'place_reception',
-        'date_of_addmision',
-        'date_of_return',
-        'driver_status_id'
+        'brand',
+        'driver_status_id',
     ];
+
+    public function withDriverStatus(){
+        return $this->hasone(DriverStatus::class,'id','driver_status_id');
+    }
+
+    public function carDetail(){
+        return $this->hasOne(CarDetails::class,'car_id','id');
+    }
 }
