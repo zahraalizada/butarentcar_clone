@@ -9,6 +9,7 @@ use App\Http\Controllers\Back\PrivacyPolicyController;
 use App\Http\Controllers\Back\QuestAnswerController;
 use App\Http\Controllers\Back\SettingsController;
 use App\Http\Controllers\Back\SocialController;
+use App\Http\Controllers\Back\TenantsController;
 
 Route::group(['middleware' => 'setlocale', 'prefix' => '{locale?}'], function () {
     Route::prefix('admin')->name('admin.')->group(function () {
@@ -21,6 +22,7 @@ Route::group(['middleware' => 'setlocale', 'prefix' => '{locale?}'], function ()
         Route::resource('cardetails', CardetailsController::class);
         Route::resource('social', SocialController::class);
         Route::resource('currency', CurrencyController::class);
+        Route::resource('tenants', TenantsController::class);
     });
 
 });

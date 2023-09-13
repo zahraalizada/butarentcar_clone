@@ -39,6 +39,7 @@
     <link href="{{asset('back/assets/css/theme.min.css')}}" rel="stylesheet" id="style-default">
     <link href="{{asset('back/assets/css/user-rtl.min.css')}}" rel="stylesheet" id="user-style-rtl">
     <link href="{{asset('back/assets/css/user.min.css')}}" rel="stylesheet" id="user-style-default">
+    <link href="{{asset('back/assets/css/style.css')}}" rel="stylesheet" id="user-style-default">
     <script>
         var isRTL = JSON.parse(localStorage.getItem('isRTL'));
         if (isRTL) {
@@ -167,22 +168,22 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link @if(Request::segment(3)=="cardetails") active @endif" href="{{route('admin.cardetails.index',['locale'=>app()->getLocale()])}}" role="button" aria-expanded="false">
-                                <div class="d-flex align-items-center">
-                                    <span class="nav-link-icon">
-                                       <span class="fas fa-info-circle"></span>
-                                    </span>
-                                    <span class="nav-link-text ps-1">Car details</span>
-                                </div>
-                            </a>
-                        </li>
-                        <li class="nav-item">
                             <a class="nav-link @if(Request::segment(3)=="cars") active @endif" href="{{route('admin.cars.index',['locale'=>app()->getLocale()])}}" role="button" aria-expanded="false">
                                 <div class="d-flex align-items-center">
                                     <span class="nav-link-icon">
                                        <span class="fas fa-car"></span>
                                     </span>
                                     <span class="nav-link-text ps-1">Cars</span>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link @if(Request::segment(3)=="tenants") active @endif" href="{{route('admin.tenants.index',['locale'=>app()->getLocale()])}}" role="button" aria-expanded="false">
+                                <div class="d-flex align-items-center">
+                                    <span class="nav-link-icon">
+                                       <span class="fas fa-user"></span>
+                                    </span>
+                                    <span class="nav-link-text ps-1">Tenants</span>
                                 </div>
                             </a>
                         </li>

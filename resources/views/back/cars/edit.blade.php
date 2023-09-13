@@ -1,87 +1,92 @@
 @extends('back.layouts.master')
 @section('title', 'Cars')
 @section('content')
-    <div class="card mb-3">
-        <div class="card-body text-end">
-            <a class="btn btn-primary btn-md" href="#">
-                <i class="fas fa-globe me-2"></i> Go Website
-            </a>
-        </div>
-    </div>
+
     <div class="card">
         <div class="card-header">
             <h3> Update Cars</h3>
         </div>
         <div class="card-body">
-            <form action="{{route('admin.cars.update',['car'=>$item->id,'locale'=>app()->getLocale()])}}" method="post">
+            <form action="{{route('admin.cars.update',['car'=>$item->id,'locale'=>app()->getLocale()])}}" enctype="multipart/form-data" method="post">
                 @csrf
                 @method('PUT')
 
                 <h5>Main Details</h5>
                 <div class="mb-3">
                     <label class="form-label" for="brand">Car Brand</label>
-                    <input class="form-control" name="brand" id="brand" type="text" placeholder="Car brand"  value="{{$item->brand}}"/>
+                    <input class="form-control" name="brand" id="brand" type="text" placeholder="Car brand"
+                           value="{{$item->brand}}"/>
                 </div>
                 <div class="mb-3">
                     <label class="form-label" for="name">Car Name</label>
-                    <input class="form-control" name="name" id="name" type="text" placeholder="Car name" value="{{$item->name}}"/>
+                    <input class="form-control" name="name" id="name" type="text" placeholder="Car name"
+                           value="{{$item->name}}"/>
                 </div>
                 <div class="mb-3">
                     <label class="form-label" for="price">Price</label>
-                    <input class="form-control" name="price" id="price" type="text" placeholder="Price" value="{{$item->price}}"/>
+                    <input class="form-control" name="price" id="price" type="text" placeholder="Price"
+                           value="{{$item->price}}"/>
                 </div>
                 <div class="mb-3">
                     <label class="form-label" for="driver_status_id">Driver status </label>
                     <select class="form-select">
                         @foreach($driverstatus as $status)
-                            <option value="{{$status->id}}" @if ($status->id == $item->driver_status_id) selected @endif>{{$status->name}}</option>
+                            <option value="{{$status->id}}"
+                                    @if ($status->id == $item->driver_status_id) selected @endif>{{$status->name}}</option>
                         @endforeach
                     </select>
                 </div>
 
                 <h5>Extra Details</h5>
                 <div class="mb-3">
+                    <label class="form-label" for="img">Car image</label> <br>
+                    <div class="car-image-box">
+                        <img src="{{$item->carDetail->img}}" >
+                    </div>
+                    <input type="file" name="img" class="form-control"/>
+                </div>
+                <div class="mb-3">
                     <label class="form-label" for="year">Year</label>
                     <input class="form-control" name="year" id="year" type="text"
-                           placeholder="Year" value="year" />
+                           placeholder="Year" value="{{$item->carDetail->year}}"/>
                 </div>
                 <div class="mb-3">
                     <label class="form-label" for="gearbox">Gearbox</label>
                     <input class="form-control" name="gearbox" id="gearbox" type="text"
-                           placeholder="Gearbox" value="gear"/>
+                           placeholder="Gearbox" value="{{$item->carDetail->gearbox}}"/>
                 </div>
                 <div class="mb-3">
                     <label class="form-label" for="engine">Engine</label>
                     <input class="form-control" name="engine" id="engine" type="text"
-                           placeholder="Engine" value="engine"/>
+                           placeholder="Engine" value="{{$item->carDetail->engine}}"/>
                 </div>
                 <div class="mb-3">
                     <label class="form-label" for="freezer">Freezer</label>
                     <input class="form-control" name="freezer" id="freezer" type="text"
-                           placeholder="Freezer" value="freezer"/>
+                           placeholder="Freezer" value="{{$item->carDetail->freezer}}"/>
                 </div>
                 <div class="mb-3">
                     <label class="form-label" for="door">Door</label>
                     <input class="form-control" name="door" id="door" type="text"
-                           placeholder="Door" value="door"/>
+                           placeholder="Door" value="{{$item->carDetail->door}}"/>
                 </div>
                 <div class="mb-3">
                     <label class="form-label" for="person">Person</label>
                     <input class="form-control" name="person" id="person" type="text"
-                           placeholder="Person" value="person"/>
+                           placeholder="Person" value="{{$item->carDetail->person}}"/>
                 </div>
                 <div class="mb-3">
                     <label class="form-label" for="seat">Seat</label>
                     <input class="form-control" name="seat" id="seat" type="text"
-                           placeholder="Seat"  value="seat"/>
+                           placeholder="Seat" value="{{$item->carDetail->seat}}"/>
                 </div>
                 <div class="mb-3">
                     <label class="form-label" for="baggage">Baggage</label>
                     <input class="form-control" name="baggage" id="baggage" type="text"
-                           placeholder="Baggage"  value="baggage"/>
+                           placeholder="Baggage" value="{{$item->carDetail->baggage}}"/>
                 </div>
 
-                <button class="btn btn-primary">Update</button>
+                <button class="btn btn-primary" type="submit">Update</button>
             </form>
         </div>
     </div>

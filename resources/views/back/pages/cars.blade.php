@@ -35,10 +35,9 @@
                                 <td>{{$item->price}}</td>
                                 <td>{{$item->brand}}</td>
                                 <td>{{$item->withDriverStatus->name}}</td>
-                                <td>YY</td>
+                                <td>{{$item->carDetail->year}}</td>
                                 <td class="text-end">
                                     <div class="d-flex align-items-center justify-content-end">
-
                                         <a href="{{route('admin.cars.edit',['car'=>$item->id,'locale'=>app()->getLocale()])}}"
                                            class="btn p-0 ms-2" type="button" data-bs-toggle="tooltip"
                                            data-bs-placement="top" title="Edit">

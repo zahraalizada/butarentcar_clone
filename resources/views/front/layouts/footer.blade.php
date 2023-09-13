@@ -1,5 +1,12 @@
 </main>
 
+
+<footer class="bg-dark">
+    <div class="container  pt-5 pb-3 text-white text-center">
+        <h6>© 2019, "Buta Rent A Car"</h6>
+    </div>
+</footer>
+
 <!-- Bootstrap Js -->
 <script
     src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.min.js"
