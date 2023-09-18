@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers\Back;
 
-use App\Models\tenants;
 use App\Models\Tenant;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -25,7 +24,7 @@ class TenantsController extends Controller
     public function store(Request  $request, $locale)
     {
         Tenant::create($request->all());
-        return redirect()->route('admin.tenants.index',$locale)->with('success', 'Added succesfully!');
+        return redirect()->route('esassehife',$locale)->with('success', 'Added succesfully!');
     }
 
 

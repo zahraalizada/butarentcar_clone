@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Back\Dashboard;
+use App\Http\Controllers\Back\TenantsController;
 use App\Http\Controllers\Front\ContactController;
 use App\Http\Controllers\Front\PrivacyPolicyController;
 use App\Http\Controllers\Front\QuestAnswerController;
@@ -16,6 +17,8 @@ Route::group(['middleware' => 'setlocale', 'prefix' => '{locale?}'], function ()
     Route::get('/privacy', [PrivacyPolicyController::class, 'index'])->name('mexfilik');
     Route::get('/faq', [QuestAnswerController::class, 'index'])->name('faq');
     Route::get('/contact', [ContactController::class, 'index'])->name('elaqe');
+    Route::resource('/tenants', TenantsController::class);
+
 });
 
 

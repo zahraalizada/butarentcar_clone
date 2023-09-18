@@ -3,10 +3,7 @@
 @section('content')
 
     <div class="card">
-        <div class="card-header d-flex flex-between-center">
-            <h3>Tenants</h3>
-            <a href="{{route('admin.tenants.create',['locale'=>app()->getLocale()])}}" class="btn btn-primary btn-sm ">Add new </a>
-        </div>
+
 
         @if(Session::has('success'))
             <div class="alert alert-success" role="alert">

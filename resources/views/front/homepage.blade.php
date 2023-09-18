@@ -597,63 +597,48 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <form action="#" method="">
+
+                    <form action="{{route('admin.tenants.store',['locale'=>app()->getLocale()])}}" method="post">
+                        @csrf
                         <div class="mb-3">
                             <label for="car_name" class="form-label">Avtomobil seçin</label>
-                            <select class="form-select" disabled name="car_name">
-                                <option selected>Elantra</option>
-                                <option value="1">One</option>
-                                <option value="2">Two</option>
-                                <option value="3">Three</option>
-                            </select>
-                        </div>
-                        <div class="mb-3">
-                            <label for="airport" class="form-label">Qəbul yeri</label>
-                            <select class="form-select" name="airport">
-                                <option selected>Heydər ALiyev Beynəlxalq Airportu</option>
-                                <option value="1">One</option>
-                                <option value="2">Two</option>
-                                <option value="3">Three</option>
-                            </select>
+                            <input type="text" class="form-control" id="car_name" name="car_name" readonly value="Elantra">
                         </div>
                         <div class="mb-3">
                             <label for="fullname" class="form-label">Ad Soyad</label>
-                            <input type="text" class="form-control" id="fullname" placeholder="Ad Soyad">
+                            <input type="text" class="form-control" id="fullname" name="fullname" placeholder="Ad Soyad">
+                        </div>
+                        <div class="mb-3">
+                            <label for="email" class="form-label">Email</label>
+                            <input type="email" class="form-control" id="email" name="email" placeholder="Email daxil edin">
+                        </div>
+                        <div class="mb-3">
+                            <label for="phone" class="form-label">Telefon </label>
+                            <input type="text" class="form-control" id="phone" name="phone" placeholder="0551234567">
+                        </div>
+                        <div class="mb-3">
+                            <label for="reception_place" class="form-label">Qəbul yeri</label>
+                            <select class="form-select" name="reception_place">
+                                <option value="Airport">Heydər Aliyev Beynəlxalq Airportu</option>
+                                <option value="Center">İcarə məntəqəsi</option>
+                            </select>
                         </div>
 
                         <div class="row mb-3">
                             <div class="col-md-6">
-                                <label for="reservation_date" class="form-label">reservation_date</label>
-                                <input type="text" class="form-control" id="reservation_date" name="reservation_date"
-                                       data-provide="datepicker" value="15/08/2023">
+                                <label for="reserve_date" class="form-label">Reservation date</label>
+                                <input type="text" class="form-control" id="reserve_date" name="reserve_date"
+                                       data-provide="datepicker" placeholder="01/01/2022">
                             </div>
                             <div class="col-md-6">
-                                <label for="return_date" class="form-label">reservation_date</label>
-                                <input type="text" class="form-control" id="reservation_date" name="reservation_date"
-                                       data-provide="datepicker" value="15/08/2023">
+                                <label for="return_date" class="form-label">Return_date</label>
+                                <input type="text" class="form-control" id="return_date" name="return_date"
+                                       data-provide="datepicker" placeholder="01/01/2022">
                             </div>
                         </div>
-                        <div class="mb-3">
-                            <label for="email" class="form-label">Email</label>
-                            <input type="email" class="form-control" id="email" placeholder="Email daxil edin">
-                        </div>
-                        <div class="mb-3">
-                            <label for="email" class="form-label">Telefon nömrəsi</label>
 
-
-                        <div class="input-group mb-3">
-                            <button class="btn btn-outline-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">Country</button>
-                            <ul class="dropdown-menu">
-                                <li><a class="dropdown-item" href="#">Azerbaijan</a></li>
-                                <li><a class="dropdown-item" href="#">Turkey</a></li>
-                                <li><a class="dropdown-item" href="#">Russia</a></li>
-                            </ul>
-                            <input type="text" class="form-control" aria-label="Text input with dropdown button">
-                        </div>
-                        </div>
                         <div class="col-12">
                             <button type="submit" class="btn btn-warning w-100">Göndər</button>
-
                         </div>
                     </form>
                 </div>

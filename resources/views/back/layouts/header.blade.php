@@ -34,6 +34,7 @@
     <!-- ===============================================-->
     <link rel="preconnect" href="https://fonts.gstatic.com/">
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,500,600,700%7cPoppins:300,400,500,600,700,800,900&amp;display=swap" rel="stylesheet">
+
     <link href="{{asset('back/vendors/overlayscrollbars/OverlayScrollbars.min.css')}}" rel="stylesheet">
     <link href="{{asset('back/assets/css/theme-rtl.min.css')}}" rel="stylesheet" id="style-rtl">
     <link href="{{asset('back/assets/css/theme.min.css')}}" rel="stylesheet" id="style-default">
@@ -732,7 +733,7 @@
                         <a href="{{ route('setLocale', 'az') }}"  class='btn btn-sm {{app()->getLocale()=='az'?'btn-success active':'btn-secondary'}} me-2'>Az</a>
                     </div>
 
-                    <a href="#" class="btn btn-primary btn-md" href="#">
+                    <a href="{{route('esassehife')}}" target="_blank" class="btn btn-primary btn-md" href="#">
                         <i class="fas fa-globe me-2"></i> Go Website
                     </a>
                 </div>

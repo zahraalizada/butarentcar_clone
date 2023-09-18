@@ -13,6 +13,10 @@
         crossorigin="anonymous"
         referrerpolicy="no-referrer"
     />
+    <link
+        rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/lipis/flag-icons@6.11.0/css/flag-icons.min.css"
+    />
 
     <!-- Bootsrap icon -->
     <link
@@ -40,18 +44,16 @@
             class="container d-flex align-items-center justify-content-between"
         >
             <div class="language-switcher">
-                <a href="{{ route('setLocale', 'en') }}" class='btn btn-sm  {{app()->getLocale()=='en'?'btn-success active':'btn-secondary'}} me-2'>En</a>
-                <a href="{{ route('setLocale', 'az') }}"  class='btn btn-sm {{app()->getLocale()=='az'?'btn-success active':'btn-secondary'}} me-2'>Az</a>
+                <a href="{{ route('setLocale', 'en') }}" class='text-decoration-none {{app()->getLocale()=='en'?'text-white active':'text-secondary'}} me-2'>
+                    <span class="fi fi-gb "></span>
+                   <span> EN</span>
+                </a>
+                <a href="{{ route('setLocale', 'az') }}"  class='text-decoration-none {{app()->getLocale()=='az'?'text-white active':'text-secondary'}} me-2'>
+                    <span class="fi fi-az "></span>
+                    <span> AZ</span>
+                </a>
             </div>
 
-{{--            <ul class="navbar-nav mb-2 mb-lg-0 flex-row">--}}
-{{--                <li class="nav-item">--}}
-{{--                    <a class="nav-link active me-3 me-lg-0" aria-current="page" href="#" >Az</a >--}}
-{{--                </li>--}}
-{{--                <li class="nav-item">--}}
-{{--                    <a class="nav-link me-3 me-lg-0" href="{{ route('setLocale', 'en') }}">En</a>--}}
-{{--                </li>--}}
-{{--            </ul>--}}
             <ul class="navbar-nav mb-2 mb-lg-0 flex-row">
                 <li class="nav-item">
                     <a class="nav-link" href="#">
