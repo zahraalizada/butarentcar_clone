@@ -18,9 +18,7 @@ Route::group(['middleware' => 'setlocale', 'prefix' => '{locale?}'], function ()
     Route::get('/faq', [QuestAnswerController::class, 'index'])->name('faq');
     Route::get('/contact', [ContactController::class, 'index'])->name('elaqe');
     Route::resource('/tenants', TenantsController::class);
-
 });
-
 
 
 

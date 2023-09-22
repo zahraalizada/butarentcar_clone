@@ -2,15 +2,13 @@
 
 @section('content')
     <section>
-        <div
-            class="cover-img"
-            style="background-image: url('{{asset('front/assets/img/cover-img.jpg')}}')">
+        {{--        <div class="cover-img" style="background-image: url('{{asset('front/assets/img/cover-img.jpg')}}')">--}}
+        <div class="cover-img" style="background-image: url('{{$item->cover_img}}')">
             <div class="container">
                 <div class="cover-description">
-                    <h1>Bakıda avtomobil icarəsi</h1>
+                    <h1>@lang('static_items.herotitle')</h1>
                     <p>
-                        Sürücüsüz və sürücü ilə olan icarəyə avtomobillər
-                        təklif edir
+                        @lang('static_items.herodesc')
                     </p>
                 </div>
 
@@ -37,550 +35,213 @@
             <div class="tab-pane fade show active" id="tab1" role="tabpanel" aria-labelledby="tab1-tab">
                 <!-- Button trigger modal -->
                 <div class="row mb-3">
-                    <div class="col-lg-4">
-                        <div class="card car-modal-btn ps-3 pe-3 mb-3 mb-lg-0" data-bs-toggle="modal"
-                             data-bs-target="#exampleModal">
-                            <div class="card-body pb-0">
-                                <div class="d-flex align-items-center">
-                                    <div class="car-logo-box">
-                                        <img src="{{asset('/front/assets/img/hundai_logo.png')}}">
-                                    </div>
-                                    <div class="car-name">Elantra</div>
-                                </div>
-                                <div class="car-image-box">
-                                    <img src="{{asset('/front/assets/img/hundai_elantra.jpg')}}">
-                                </div>
-                                <div class="row">
-                                    <div class="col-6">
-                                        <ul class="text-secondary">
-                                            <li>
-                                                <div class="d-inline-flex align-items-center mb-2">
-                                                    <img src="{{asset('/front/assets/img/calendar_icon.png')}}"><span
-                                                        class="ms-1">2015</span>
-                                                </div>
-                                            </li>
-                                            <li>
-                                                <div class="d-inline-flex align-items-center mb-2">
-                                                    <img src="{{asset('/front/assets/img/doors_icon.png')}}"><span
-                                                        class="ms-1">5</span>
-                                                </div>
+                    @foreach($cars as $car)
+                        @if( $car->withDriverStatus->id == 1)
+                            <div class="col-lg-4 mb-3">
+                                <div class="card car-modal-btn ps-3 pe-3 mb-3 mb-lg-0" data-bs-toggle="modal"
+                                     data-bs-target="#exampleModal">
+                                    <div class="card-body pb-0">
+                                        <div class="d-flex align-items-center">
+                                            <div class="car-logo-box">
+                                                <img src="{{$car->carBrand->icon}}">
+                                            </div>
+                                            <div class="car-name">{{$car->name}}</div>
+                                        </div>
+                                        <div class="car-image-box ms-5 mb-2">
+                                            <img src="{{$car->carDetail->img}}">
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-6">
+                                                <ul class="text-secondary">
+                                                    <li>
+                                                        <div class="d-inline-flex align-items-center mb-2">
+                                                            <img
+                                                                src="{{asset('/front/assets/img/calendar_icon.png')}}"><span
+                                                                class="ms-1">{{$car->carDetail->year}}</span>
+                                                        </div>
+                                                    </li>
+                                                    <li>
+                                                        <div class="d-inline-flex align-items-center mb-2">
+                                                            <img
+                                                                src="{{asset('/front/assets/img/doors_icon.png')}}"><span
+                                                                class="ms-1">{{$car->carDetail->door}}</span>
+                                                        </div>
+                                                    </li>
+                                                    <li>
+                                                        <div class="d-inline-flex align-items-center mb-2">
+                                                            <img
+                                                                src="{{asset('/front/assets/img/gear_icon.png')}}"><span
+                                                                class="ms-1">{{$car->carDetail->gearbox}}</span>
+                                                        </div>
+                                                    </li>
+                                                    <li>
+                                                        <div class="d-inline-flex align-items-center mb-2">
+                                                            <img
+                                                                src="{{asset('/front/assets/img/freezer_icon.png')}}"><span
+                                                                class="ms-1">{{$car->carDetail->freezer}}</span>
+                                                        </div>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                            <div class="col-6">
+                                                <ul class="text-secondary">
+                                                    <li>
+                                                        <div class="d-inline-flex align-items-center mb-2">
+                                                            <img
+                                                                src="{{asset('/front/assets/img/engine2_icon.png')}}"><span
+                                                                class="ms-1">{{$car->carDetail->engine}} a.g.</span>
+                                                        </div>
+                                                    </li>
+                                                    <li>
+                                                        <div class="d-inline-flex align-items-center mb-2">
+                                                            <img
+                                                                src="{{asset('/front/assets/img/man-user_icon.png')}}"><span
+                                                                class="ms-1">{{$car->carDetail->person}}</span>
+                                                        </div>
 
-                                            </li>
-                                            <li>
-                                                <div class="d-inline-flex align-items-center mb-2">
-                                                    <img src="{{asset('/front/assets/img/gear_icon.png')}}"><span
-                                                        class="ms-1">Avtomat</span>
-                                                </div>
-                                            </li>
-                                            <li>
-                                                <div class="d-inline-flex align-items-center mb-2">
-                                                    <img src="{{asset('/front/assets/img/freezer_icon.png')}}"><span
-                                                        class="ms-1">Kondisioner</span>
-                                                </div>
-                                            </li>
-                                        </ul>
+                                                    </li>
+                                                    <li>
+                                                        <div class="d-inline-flex align-items-center mb-2">
+                                                            <img
+                                                                src="{{asset('/front/assets/img/baggage_icon.png')}}"><span
+                                                                class="ms-1">{{$car->carDetail->baggage}}</span>
+                                                        </div>
+                                                    </li>
+                                                    <li>
+                                                        <div class="d-inline-flex align-items-center mb-2">
+                                                            <img
+                                                                src="{{asset('/front/assets/img/car_seat_icon.png')}}"><span
+                                                                class="ms-1">{{$car->carDetail->seat}}</span>
+                                                        </div>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
                                     </div>
-                                    <div class="col-6">
-                                        <ul class="text-secondary">
-                                            <li>
-                                                <div class="d-inline-flex align-items-center mb-2">
-                                                    <img src="{{asset('/front/assets/img/engine2_icon.png')}}"><span
-                                                        class="ms-1">160 a.g.</span>
-                                                </div>
-                                            </li>
-                                            <li>
-                                                <div class="d-inline-flex align-items-center mb-2">
-                                                    <img src="{{asset('/front/assets/img/man-user_icon.png')}}"><span
-                                                        class="ms-1">5</span>
-                                                </div>
+                                    <hr class="mt-0 mb-0">
+                                    <div>
+                                        <div class="d-flex p-3">
+                                            <div class="col-6">
+                                                <div class="d-flex align-items-start"><span
+                                                        class="car-price-value me-1">60.00</span> <span
+                                                        class="car-price-symbol"> ₼</span></div>
+                                            </div>
+                                            <div class="col-6">
+                                                <button class="btn-bron">İNDİ BRON EDİN</button>
+                                            </div>
+                                        </div>
 
-                                            </li>
-                                            <li>
-                                                <div class="d-inline-flex align-items-center mb-2">
-                                                    <img src="{{asset('/front/assets/img/baggage_icon.png')}}"><span
-                                                        class="ms-1">1</span>
-                                                </div>
-                                            </li>
-                                            <li>
-                                                <div class="d-inline-flex align-items-center mb-2">
-                                                    <img src="{{asset('/front/assets/img/car_seat_icon.png')}}"><span
-                                                        class="ms-1">Parça</span>
-                                                </div>
-                                            </li>
-                                        </ul>
                                     </div>
                                 </div>
                             </div>
-                            <hr class="mt-0 mb-0">
-                            <div>
-                                <div class="d-flex p-3">
-                                    <div class="col-6">
-                                        <div class="d-flex align-items-start"><span
-                                                class="car-price-value me-1">60.00</span> <span
-                                                class="car-price-symbol"> ₼</span></div>
-                                    </div>
-                                    <div class="col-6">
-                                        <button class="btn-bron">İNDİ BRON EDİN</button>
-                                    </div>
-                                </div>
+                        @endif
+                    @endforeach
 
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4">
-                        <div class="card car-modal-btn ps-3 pe-3 mb-3 mb-lg-0" data-bs-toggle="modal"
-                             data-bs-target="#exampleModal">
-                            <div class="card-body pb-0">
-                                <div class="d-flex align-items-center">
-                                    <div class="car-logo-box">
-                                        <img src="{{asset('/front/assets/img/hundai_logo.png')}}">
-                                    </div>
-                                    <div class="car-name">Elantra</div>
-                                </div>
-                                <div class="car-image-box">
-                                    <img src="{{asset('/front/assets/img/hundai_elantra.jpg')}}">
-                                </div>
-                                <div class="row">
-                                    <div class="col-6">
-                                        <ul class="text-secondary">
-                                            <li>
-                                                <div class="d-inline-flex align-items-center mb-2">
-                                                    <img src="{{asset('/front/assets/img/calendar_icon.png')}}"><span
-                                                        class="ms-1">2015</span>
-                                                </div>
-                                            </li>
-                                            <li>
-                                                <div class="d-inline-flex align-items-center mb-2">
-                                                    <img src="{{asset('/front/assets/img/doors_icon.png')}}"><span
-                                                        class="ms-1">5</span>
-                                                </div>
-
-                                            </li>
-                                            <li>
-                                                <div class="d-inline-flex align-items-center mb-2">
-                                                    <img src="{{asset('/front/assets/img/gear_icon.png')}}"><span
-                                                        class="ms-1">Avtomat</span>
-                                                </div>
-                                            </li>
-                                            <li>
-                                                <div class="d-inline-flex align-items-center mb-2">
-                                                    <img src="{{asset('/front/assets/img/freezer_icon.png')}}"><span
-                                                        class="ms-1">Kondisioner</span>
-                                                </div>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                    <div class="col-6">
-                                        <ul class="text-secondary">
-                                            <li>
-                                                <div class="d-inline-flex align-items-center mb-2">
-                                                    <img src="{{asset('/front/assets/img/engine2_icon.png')}}"><span
-                                                        class="ms-1">160 a.g.</span>
-                                                </div>
-                                            </li>
-                                            <li>
-                                                <div class="d-inline-flex align-items-center mb-2">
-                                                    <img src="{{asset('/front/assets/img/man-user_icon.png')}}"><span
-                                                        class="ms-1">5</span>
-                                                </div>
-
-                                            </li>
-                                            <li>
-                                                <div class="d-inline-flex align-items-center mb-2">
-                                                    <img src="{{asset('/front/assets/img/baggage_icon.png')}}"><span
-                                                        class="ms-1">1</span>
-                                                </div>
-                                            </li>
-                                            <li>
-                                                <div class="d-inline-flex align-items-center mb-2">
-                                                    <img src="{{asset('/front/assets/img/car_seat_icon.png')}}"><span
-                                                        class="ms-1">Parça</span>
-                                                </div>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                            <hr class="mt-0 mb-0">
-                            <div>
-                                <div class="d-flex p-3">
-                                    <div class="col-6">
-                                        <div class="d-flex align-items-start"><span
-                                                class="car-price-value me-1">60.00</span> <span
-                                                class="car-price-symbol"> ₼</span></div>
-                                    </div>
-                                    <div class="col-6">
-                                        <button class="btn-bron">İNDİ BRON EDİN</button>
-                                    </div>
-                                </div>
-
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4">
-                        <div class="card car-modal-btn ps-3 pe-3 mb-3 mb-lg-0" data-bs-toggle="modal"
-                             data-bs-target="#exampleModal">
-                            <div class="card-body pb-0">
-                                <div class="d-flex align-items-center">
-                                    <div class="car-logo-box">
-                                        <img src="{{asset('/front/assets/img/hundai_logo.png')}}">
-                                    </div>
-                                    <div class="car-name">Elantra</div>
-                                </div>
-                                <div class="car-image-box">
-                                    <img src="{{asset('/front/assets/img/hundai_elantra.jpg')}}">
-                                </div>
-                                <div class="row">
-                                    <div class="col-6">
-                                        <ul class="text-secondary">
-                                            <li>
-                                                <div class="d-inline-flex align-items-center mb-2">
-                                                    <img src="{{asset('/front/assets/img/calendar_icon.png')}}"><span
-                                                        class="ms-1">2015</span>
-                                                </div>
-                                            </li>
-                                            <li>
-                                                <div class="d-inline-flex align-items-center mb-2">
-                                                    <img src="{{asset('/front/assets/img/doors_icon.png')}}"><span
-                                                        class="ms-1">5</span>
-                                                </div>
-
-                                            </li>
-                                            <li>
-                                                <div class="d-inline-flex align-items-center mb-2">
-                                                    <img src="{{asset('/front/assets/img/gear_icon.png')}}"><span
-                                                        class="ms-1">Avtomat</span>
-                                                </div>
-                                            </li>
-                                            <li>
-                                                <div class="d-inline-flex align-items-center mb-2">
-                                                    <img src="{{asset('/front/assets/img/freezer_icon.png')}}"><span
-                                                        class="ms-1">Kondisioner</span>
-                                                </div>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                    <div class="col-6">
-                                        <ul class="text-secondary">
-                                            <li>
-                                                <div class="d-inline-flex align-items-center mb-2">
-                                                    <img src="{{asset('/front/assets/img/engine2_icon.png')}}"><span
-                                                        class="ms-1">160 a.g.</span>
-                                                </div>
-                                            </li>
-                                            <li>
-                                                <div class="d-inline-flex align-items-center mb-2">
-                                                    <img src="{{asset('/front/assets/img/man-user_icon.png')}}"><span
-                                                        class="ms-1">5</span>
-                                                </div>
-
-                                            </li>
-                                            <li>
-                                                <div class="d-inline-flex align-items-center mb-2">
-                                                    <img src="{{asset('/front/assets/img/baggage_icon.png')}}"><span
-                                                        class="ms-1">1</span>
-                                                </div>
-                                            </li>
-                                            <li>
-                                                <div class="d-inline-flex align-items-center mb-2">
-                                                    <img src="{{asset('/front/assets/img/car_seat_icon.png')}}"><span
-                                                        class="ms-1">Parça</span>
-                                                </div>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                            <hr class="mt-0 mb-0">
-                            <div>
-                                <div class="d-flex p-3">
-                                    <div class="col-6">
-                                        <div class="d-flex align-items-start"><span
-                                                class="car-price-value me-1">60.00</span> <span
-                                                class="car-price-symbol"> ₼</span></div>
-                                    </div>
-                                    <div class="col-6">
-                                        <button class="btn-bron">İNDİ BRON EDİN</button>
-                                    </div>
-                                </div>
-
-                            </div>
-                        </div>
-                    </div>
                 </div>
             </div>
             <div class="tab-pane fade" id="tab2" role="tabpanel" aria-labelledby="tab2-tab">
                 <div class="row mb-3">
-                    <div class="col-lg-4">
-                        <div class="card car-modal-btn ps-3 pe-3 mb-3 mb-lg-0" data-bs-toggle="modal"
-                             data-bs-target="#exampleModal">
-                            <div class="card-body pb-0">
-                                <div class="d-flex align-items-center">
-                                    <div class="car-logo-box">
-                                        <img src="{{asset('/front/assets/img/chevrolet_logo.jpg')}}">
-                                    </div>
-                                    <div class="car-name">Cruze</div>
-                                </div>
-                                <div class="car-image-box">
-                                    <img src="{{asset('/front/assets/img/chevrolet_cruze.jpg')}}">
-                                </div>
-                                <div class="row">
-                                    <div class="col-6">
-                                        <ul class="text-secondary">
-                                            <li>
-                                                <div class="d-inline-flex align-items-center mb-2">
-                                                    <img src="{{asset('/front/assets/img/calendar_icon.png')}}"><span
-                                                        class="ms-1">2015</span>
-                                                </div>
-                                            </li>
-                                            <li>
-                                                <div class="d-inline-flex align-items-center mb-2">
-                                                    <img src="{{asset('/front/assets/img/doors_icon.png')}}"><span
-                                                        class="ms-1">5</span>
-                                                </div>
+                    @foreach($cars as $car)
+                        @if( $car->withDriverStatus->id == 2)
+                            <div class="col-lg-4 mb-3">
+                                <div class="card car-modal-btn ps-3 pe-3 mb-3 mb-lg-0" data-bs-toggle="modal"
+                                     data-bs-target="#exampleModal">
+                                    <div class="card-body pb-0">
+                                        <div class="d-flex align-items-center">
+                                            <div class="car-logo-box">
+                                                <img src="{{$car->carBrand->icon}}">
+                                            </div>
+                                            <div class="car-name">{{$car->name}}</div>
+                                        </div>
+                                        <div class="car-image-box ms-5 mb-2">
+                                            <img src="{{$car->carDetail->img}}">
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-6">
+                                                <ul class="text-secondary">
+                                                    <li>
+                                                        <div class="d-inline-flex align-items-center mb-2">
+                                                            <img
+                                                                src="{{asset('/front/assets/img/calendar_icon.png')}}"><span
+                                                                class="ms-1">{{$car->carDetail->year}}</span>
+                                                        </div>
+                                                    </li>
+                                                    <li>
+                                                        <div class="d-inline-flex align-items-center mb-2">
+                                                            <img
+                                                                src="{{asset('/front/assets/img/doors_icon.png')}}"><span
+                                                                class="ms-1">{{$car->carDetail->door}}</span>
+                                                        </div>
+                                                    </li>
+                                                    <li>
+                                                        <div class="d-inline-flex align-items-center mb-2">
+                                                            <img
+                                                                src="{{asset('/front/assets/img/gear_icon.png')}}"><span
+                                                                class="ms-1">{{$car->carDetail->gearbox}}</span>
+                                                        </div>
+                                                    </li>
+                                                    <li>
+                                                        <div class="d-inline-flex align-items-center mb-2">
+                                                            <img
+                                                                src="{{asset('/front/assets/img/freezer_icon.png')}}"><span
+                                                                class="ms-1">{{$car->carDetail->freezer}}</span>
+                                                        </div>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                            <div class="col-6">
+                                                <ul class="text-secondary">
+                                                    <li>
+                                                        <div class="d-inline-flex align-items-center mb-2">
+                                                            <img
+                                                                src="{{asset('/front/assets/img/engine2_icon.png')}}"><span
+                                                                class="ms-1">{{$car->carDetail->engine}} a.g.</span>
+                                                        </div>
+                                                    </li>
+                                                    <li>
+                                                        <div class="d-inline-flex align-items-center mb-2">
+                                                            <img
+                                                                src="{{asset('/front/assets/img/man-user_icon.png')}}"><span
+                                                                class="ms-1">{{$car->carDetail->person}}</span>
+                                                        </div>
 
-                                            </li>
-                                            <li>
-                                                <div class="d-inline-flex align-items-center mb-2">
-                                                    <img src="{{asset('/front/assets/img/gear_icon.png')}}"><span
-                                                        class="ms-1">Avtomat</span>
-                                                </div>
-                                            </li>
-                                            <li>
-                                                <div class="d-inline-flex align-items-center mb-2">
-                                                    <img src="{{asset('/front/assets/img/freezer_icon.png')}}"><span
-                                                        class="ms-1">Kondisioner</span>
-                                                </div>
-                                            </li>
-                                        </ul>
+                                                    </li>
+                                                    <li>
+                                                        <div class="d-inline-flex align-items-center mb-2">
+                                                            <img
+                                                                src="{{asset('/front/assets/img/baggage_icon.png')}}"><span
+                                                                class="ms-1">{{$car->carDetail->baggage}}</span>
+                                                        </div>
+                                                    </li>
+                                                    <li>
+                                                        <div class="d-inline-flex align-items-center mb-2">
+                                                            <img
+                                                                src="{{asset('/front/assets/img/car_seat_icon.png')}}"><span
+                                                                class="ms-1">{{$car->carDetail->seat}}</span>
+                                                        </div>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
                                     </div>
-                                    <div class="col-6">
-                                        <ul class="text-secondary">
-                                            <li>
-                                                <div class="d-inline-flex align-items-center mb-2">
-                                                    <img src="{{asset('/front/assets/img/engine2_icon.png')}}"><span
-                                                        class="ms-1">160 a.g.</span>
-                                                </div>
-                                            </li>
-                                            <li>
-                                                <div class="d-inline-flex align-items-center mb-2">
-                                                    <img src="{{asset('/front/assets/img/man-user_icon.png')}}"><span
-                                                        class="ms-1">5</span>
-                                                </div>
+                                    <hr class="mt-0 mb-0">
+                                    <div>
+                                        <div class="d-flex p-3">
+                                            <div class="col-6">
+                                                <div class="d-flex align-items-start"><span
+                                                        class="car-price-value me-1">60.00</span> <span
+                                                        class="car-price-symbol"> ₼</span></div>
+                                            </div>
+                                            <div class="col-6">
+                                                <button class="btn-bron">İNDİ BRON EDİN</button>
+                                            </div>
+                                        </div>
 
-                                            </li>
-                                            <li>
-                                                <div class="d-inline-flex align-items-center mb-2">
-                                                    <img src="{{asset('/front/assets/img/baggage_icon.png')}}"><span
-                                                        class="ms-1">1</span>
-                                                </div>
-                                            </li>
-                                            <li>
-                                                <div class="d-inline-flex align-items-center mb-2">
-                                                    <img src="{{asset('/front/assets/img/car_seat_icon.png')}}"><span
-                                                        class="ms-1">Parça</span>
-                                                </div>
-                                            </li>
-                                        </ul>
                                     </div>
                                 </div>
                             </div>
-                            <hr class="mt-0 mb-0">
-                            <div>
-                                <div class="d-flex p-3">
-                                    <div class="col-6">
-                                        <div class="d-flex align-items-start"><span
-                                                class="car-price-value me-1">60.00</span> <span
-                                                class="car-price-symbol"> ₼</span></div>
-                                    </div>
-                                    <div class="col-6">
-                                        <button class="btn-bron">İNDİ BRON EDİN</button>
-                                    </div>
-                                </div>
-
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4">
-                        <div class="card car-modal-btn ps-3 pe-3 mb-3 mb-lg-0" data-bs-toggle="modal"
-                             data-bs-target="#exampleModal">
-                            <div class="card-body pb-0">
-                                <div class="d-flex align-items-center">
-                                    <div class="car-logo-box">
-                                        <img src="{{asset('/front/assets/img/hundai_logo.png')}}">
-                                    </div>
-                                    <div class="car-name">Elantra</div>
-                                </div>
-                                <div class="car-image-box">
-                                    <img src="{{asset('/front/assets/img/hundai_elantra.jpg')}}">
-                                </div>
-                                <div class="row">
-                                    <div class="col-6">
-                                        <ul class="text-secondary">
-                                            <li>
-                                                <div class="d-inline-flex align-items-center mb-2">
-                                                    <img src="{{asset('/front/assets/img/calendar_icon.png')}}"><span
-                                                        class="ms-1">2015</span>
-                                                </div>
-                                            </li>
-                                            <li>
-                                                <div class="d-inline-flex align-items-center mb-2">
-                                                    <img src="{{asset('/front/assets/img/doors_icon.png')}}"><span
-                                                        class="ms-1">5</span>
-                                                </div>
-
-                                            </li>
-                                            <li>
-                                                <div class="d-inline-flex align-items-center mb-2">
-                                                    <img src="{{asset('/front/assets/img/gear_icon.png')}}"><span
-                                                        class="ms-1">Avtomat</span>
-                                                </div>
-                                            </li>
-                                            <li>
-                                                <div class="d-inline-flex align-items-center mb-2">
-                                                    <img src="{{asset('/front/assets/img/freezer_icon.png')}}"><span
-                                                        class="ms-1">Kondisioner</span>
-                                                </div>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                    <div class="col-6">
-                                        <ul class="text-secondary">
-                                            <li>
-                                                <div class="d-inline-flex align-items-center mb-2">
-                                                    <img src="{{asset('/front/assets/img/engine2_icon.png')}}"><span
-                                                        class="ms-1">160 a.g.</span>
-                                                </div>
-                                            </li>
-                                            <li>
-                                                <div class="d-inline-flex align-items-center mb-2">
-                                                    <img src="{{asset('/front/assets/img/man-user_icon.png')}}"><span
-                                                        class="ms-1">5</span>
-                                                </div>
-
-                                            </li>
-                                            <li>
-                                                <div class="d-inline-flex align-items-center mb-2">
-                                                    <img src="{{asset('/front/assets/img/baggage_icon.png')}}"><span
-                                                        class="ms-1">1</span>
-                                                </div>
-                                            </li>
-                                            <li>
-                                                <div class="d-inline-flex align-items-center mb-2">
-                                                    <img src="{{asset('/front/assets/img/car_seat_icon.png')}}"><span
-                                                        class="ms-1">Parça</span>
-                                                </div>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                            <hr class="mt-0 mb-0">
-                            <div>
-                                <div class="d-flex p-3">
-                                    <div class="col-6">
-                                        <div class="d-flex align-items-start"><span
-                                                class="car-price-value me-1">60.00</span> <span
-                                                class="car-price-symbol"> ₼</span></div>
-                                    </div>
-                                    <div class="col-6">
-                                        <button class="btn-bron">İNDİ BRON EDİN</button>
-                                    </div>
-                                </div>
-
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4">
-                        <div class="card car-modal-btn ps-3 pe-3 mb-3 mb-lg-0" data-bs-toggle="modal"
-                             data-bs-target="#exampleModal">
-                            <div class="card-body pb-0">
-                                <div class="d-flex align-items-center">
-                                    <div class="car-logo-box">
-                                        <img src="{{asset('/front/assets/img/hundai_logo.png')}}">
-                                    </div>
-                                    <div class="car-name">Elantra</div>
-                                </div>
-                                <div class="car-image-box">
-                                    <img src="{{asset('/front/assets/img/hundai_elantra.jpg')}}">
-                                </div>
-                                <div class="row">
-                                    <div class="col-6">
-                                        <ul class="text-secondary">
-                                            <li>
-                                                <div class="d-inline-flex align-items-center mb-2">
-                                                    <img src="{{asset('/front/assets/img/calendar_icon.png')}}"><span
-                                                        class="ms-1">2015</span>
-                                                </div>
-                                            </li>
-                                            <li>
-                                                <div class="d-inline-flex align-items-center mb-2">
-                                                    <img src="{{asset('/front/assets/img/doors_icon.png')}}"><span
-                                                        class="ms-1">5</span>
-                                                </div>
-
-                                            </li>
-                                            <li>
-                                                <div class="d-inline-flex align-items-center mb-2">
-                                                    <img src="{{asset('/front/assets/img/gear_icon.png')}}"><span
-                                                        class="ms-1">Avtomat</span>
-                                                </div>
-                                            </li>
-                                            <li>
-                                                <div class="d-inline-flex align-items-center mb-2">
-                                                    <img src="{{asset('/front/assets/img/freezer_icon.png')}}"><span
-                                                        class="ms-1">Kondisioner</span>
-                                                </div>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                    <div class="col-6">
-                                        <ul class="text-secondary">
-                                            <li>
-                                                <div class="d-inline-flex align-items-center mb-2">
-                                                    <img src="{{asset('/front/assets/img/engine2_icon.png')}}"><span
-                                                        class="ms-1">160 a.g.</span>
-                                                </div>
-                                            </li>
-                                            <li>
-                                                <div class="d-inline-flex align-items-center mb-2">
-                                                    <img src="{{asset('/front/assets/img/man-user_icon.png')}}"><span
-                                                        class="ms-1">5</span>
-                                                </div>
-
-                                            </li>
-                                            <li>
-                                                <div class="d-inline-flex align-items-center mb-2">
-                                                    <img src="{{asset('/front/assets/img/baggage_icon.png')}}"><span
-                                                        class="ms-1">1</span>
-                                                </div>
-                                            </li>
-                                            <li>
-                                                <div class="d-inline-flex align-items-center mb-2">
-                                                    <img src="{{asset('/front/assets/img/car_seat_icon.png')}}"><span
-                                                        class="ms-1">Parça</span>
-                                                </div>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                            <hr class="mt-0 mb-0">
-                            <div>
-                                <div class="d-flex p-3">
-                                    <div class="col-6">
-                                        <div class="d-flex align-items-start"><span
-                                                class="car-price-value me-1">60.00</span> <span
-                                                class="car-price-symbol"> ₼</span></div>
-                                    </div>
-                                    <div class="col-6">
-                                        <button class="btn-bron">İNDİ BRON EDİN</button>
-                                    </div>
-                                </div>
-
-                            </div>
-                        </div>
-                    </div>
+                        @endif
+                    @endforeach
                 </div>
             </div>
         </div>
@@ -602,15 +263,18 @@
                         @csrf
                         <div class="mb-3">
                             <label for="car_name" class="form-label">Avtomobil seçin</label>
-                            <input type="text" class="form-control" id="car_name" name="car_name" readonly value="Elantra">
+                            <input type="text" class="form-control" id="car_name" name="car_name" readonly
+                                   value="Elantra">
                         </div>
                         <div class="mb-3">
                             <label for="fullname" class="form-label">Ad Soyad</label>
-                            <input type="text" class="form-control" id="fullname" name="fullname" placeholder="Ad Soyad">
+                            <input type="text" class="form-control" id="fullname" name="fullname"
+                                   placeholder="Ad Soyad">
                         </div>
                         <div class="mb-3">
                             <label for="email" class="form-label">Email</label>
-                            <input type="email" class="form-control" id="email" name="email" placeholder="Email daxil edin">
+                            <input type="email" class="form-control" id="email" name="email"
+                                   placeholder="Email daxil edin">
                         </div>
                         <div class="mb-3">
                             <label for="phone" class="form-label">Telefon </label>

@@ -24,4 +24,9 @@ class Cars extends Model
     public function carDetail(){
         return $this->hasOne(CarDetails::class,'car_id','id');
     }
+
+    public function carBrand(){
+        return $this->hasone(CarBrand::class,'id','brand');
+    }
+
 }

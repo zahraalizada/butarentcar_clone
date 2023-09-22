@@ -10,9 +10,14 @@
             <form action="{{route('admin.cars.store',['locale'=>app()->getLocale()])}}" method="post" enctype="multipart/form-data">
                 @csrf
                 <h5>Main Details</h5>
+
                 <div class="mb-3">
                     <label class="form-label" for="brand">Car Brand</label>
-                    <input class="form-control" name="brand" id="brand" type="text" placeholder="Car brand"/>
+                    <select class="form-select" id="brand" name="brand">
+                        @foreach($brands as $brand)
+                            <option value="{{$brand->id}}">{{$brand->name}}</option>
+                        @endforeach
+                    </select>
                 </div>
                 <div class="mb-3">
                     <label class="form-label" for="name">Car Name</label>

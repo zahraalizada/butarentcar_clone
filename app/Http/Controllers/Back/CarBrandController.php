@@ -35,7 +35,7 @@ class CarBrandController extends Controller
         $data = array_merge($request->except(['icon']), ['icon' => $icon]);
 
         CarBrand::create($data);
-        return redirect()->route('admin.carbrand.index',$locale)->with('success', 'Added succesfully!');
+        return redirect()->route('admin.carbrands.index',$locale)->with('success', 'Added succesfully!');
     }
 
 
@@ -60,14 +60,14 @@ class CarBrandController extends Controller
 
         $item->update($data);
 
-        return redirect()->route('admin.carbrand.index',$locale)->with('success','Update succesfully!');
+        return redirect()->route('admin.carbrands.index',$locale)->with('success','Update succesfully!');
     }
 
     public function destroy(string $locale,$id)
     {
         $item = CarBrand::findOrFail($id);
         $item->delete();
-        return redirect()->route('admin.carbrand.index',$locale)->with('success','Delete succesfully!');
+        return redirect()->route('admin.carbrands.index',$locale)->with('success','Delete succesfully!');
 
     }
 }

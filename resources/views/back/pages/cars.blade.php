@@ -20,6 +20,7 @@
                     <table class="table table-bordered table-striped fs--1 mb-0">
                         <thead class="bg-200 text-900">
                         <tr>
+                            <th class="sort" data-sort="name">Brand</th>
                             <th class="sort" data-sort="name">Name</th>
                             <th class="sort" data-sort="name">Price</th>
                             <th class="sort" data-sort="name">Brand</th>
@@ -31,6 +32,7 @@
                         <tbody class="list">
                         @foreach($items as $item)
                             <tr>
+                                <td>{{$item->carBrand->name}}</td>
                                 <td>{{$item->name}}</td>
                                 <td>{{$item->price}}</td>
                                 <td>{{$item->brand}}</td>

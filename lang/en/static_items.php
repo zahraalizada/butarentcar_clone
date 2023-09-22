@@ -15,13 +15,10 @@ return [
 //   Contact settings
     'phone' => 'Telephones',
     'whatsapp' => 'WhatsApp',
-    'worktime' => 'Work day',
+    'worktime' => 'Work time',
     'email' => 'Email',
     'address' => 'Address',
 
-//   Footer content
-    'footercontent1' => 'RENT A CAR IN BAKU',
-    'footercontent2' => 'We accept for payment',
 
 //    Card content
     'bron'=> 'BOOK NOW',

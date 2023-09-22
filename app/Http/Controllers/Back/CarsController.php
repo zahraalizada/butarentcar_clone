@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Back;
 
+use App\Models\CarBrand;
 use App\Models\CarDetails;
 use App\Models\Cars;
 use App\Models\DriverStatus;
@@ -20,7 +21,8 @@ class CarsController extends Controller
     public function create()
     {
         $driverstatus = DriverStatus::orderBy('created_at', 'DESC')->get();
-        return view('back.cars.create', compact('driverstatus'));
+        $brands = CarBrand::orderBy('created_at','DESC')->get();
+        return view('back.cars.create', compact('driverstatus','brands'));
     }
 
     public function store(Request $request, $locale)
@@ -39,8 +41,9 @@ class CarsController extends Controller
     public function edit($locale, $id)
     {
         $driverstatus = DriverStatus::orderBy('created_at', 'DESC')->get();
+        $brands = CarBrand::orderBy('created_at','DESC')->get();
         $item = Cars::findOrFail($id);
-        return view('back.cars.edit', compact('item', 'locale', 'driverstatus'));
+        return view('back.cars.edit', compact('item', 'locale', 'driverstatus','brands'));
     }
 
     public function update(Request $request, $locale, $id)

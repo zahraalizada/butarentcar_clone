@@ -46,18 +46,6 @@
                     <label class="form-label" for="cover_img">Cover image</label>
                     <input type="file" name="cover_img" class="form-control" value="{{$item->cover_img}}"/>
                 </div>
-{{--                <div class="mb-3">--}}
-{{--                    <label class="form-label" for="cover_img">Cover image</label>--}}
-{{--                    <input class="form-control" name="cover_img" id="cover_img" type="text" value="{{$item->cover_img}}" placeholder="cover_img" />--}}
-{{--                </div>--}}
-                <div class="mb-3">
-                    <label class="form-label" for="cover_title">Cover title</label>
-                    <input class="form-control" name="cover_title" id="cover_title" type="text" value="{{$item->cover_title}}" placeholder="cover_title" />
-                </div>
-                <div class="mb-3">
-                    <label class="form-label" for="cover_description">Cover Description</label>
-                    <input class="form-control" name="cover_description" id="cover_description" type="text" value="{{$item->cover_description}}" placeholder="cover_description" />
-                </div>
 
                 <button class="btn btn-primary mt-3" type="submit">Update</button>
             </form>

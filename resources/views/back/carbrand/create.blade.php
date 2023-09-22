@@ -7,7 +7,7 @@
             <h3> New Car Brand</h3>
         </div>
         <div class="card-body">
-            <form action="{{route('admin.carbrand.store',['locale'=>app()->getLocale()])}}" method="post" enctype="multipart/form-data">
+            <form action="{{route('admin.carbrands.store',['locale'=>app()->getLocale()])}}" method="post" enctype="multipart/form-data">
                 @csrf
                 <div class="mb-3">
                     <label class="form-label" for="name">Name</label>

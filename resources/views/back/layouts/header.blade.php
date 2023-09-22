@@ -169,6 +169,16 @@
                             </a>
                         </li>
                         <li class="nav-item">
+                            <a class="nav-link @if(Request::segment(3)=="carbrands") active @endif" href="{{route('admin.carbrands.index',['locale'=>app()->getLocale()])}}" role="button" aria-expanded="false">
+                                <div class="d-flex align-items-center">
+                                    <span class="nav-link-icon">
+                                       <i class="fas fa-user-check"></i>
+                                    </span>
+                                    <span class="nav-link-text ps-1">Car brands</span>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="nav-item">
                             <a class="nav-link @if(Request::segment(3)=="cars") active @endif" href="{{route('admin.cars.index',['locale'=>app()->getLocale()])}}" role="button" aria-expanded="false">
                                 <div class="d-flex align-items-center">
                                     <span class="nav-link-icon">

@@ -139,16 +139,16 @@
             <div class="collapse navbar-collapse" id="navbarText">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0 w-100">
                     <li class="nav-item">
-                        <a class="nav-link @if(Request::segment(2)=="") active text-danger @endif" href="{{route('esassehife',['locale'=>app()->getLocale()])}}">Avtomobil Parkı</a>
+                        <a class="nav-link @if(Request::segment(2)=="") active text-danger @endif" href="{{route('esassehife',['locale'=>app()->getLocale()])}}">@lang('static_items.carpark')</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link @if(Request::segment(2)=="privacy") active text-danger @endif" href="{{route('mexfilik',['locale'=>app()->getLocale()])}}"> Məxfilik siyasəti</a>
+                        <a class="nav-link @if(Request::segment(2)=="privacy") active text-danger @endif" href="{{route('mexfilik',['locale'=>app()->getLocale()])}}"> @lang('static_items.privacy')</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link @if(Request::segment(2)=="faq") active text-danger @endif" href="{{route('faq',['locale'=>app()->getLocale()])}}"> Suallar və Cavablar</a>
+                        <a class="nav-link @if(Request::segment(2)=="faq") active text-danger @endif" href="{{route('faq',['locale'=>app()->getLocale()])}}"> @lang('static_items.faq')</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link @if(Request::segment(2)=="contact") active text-danger @endif" href="{{route('elaqe',['locale'=>app()->getLocale()])}}">Əlaqə</a>
+                        <a class="nav-link @if(Request::segment(2)=="contact") active text-danger @endif" href="{{route('elaqe',['locale'=>app()->getLocale()])}}">@lang('static_items.contact')</a>
                     </li>
                     <li class="nav-item ms-0 ms-lg-2 w-25">
                         <select class="form-control d-none d-lg-block">
@@ -165,16 +165,7 @@
         </div>
     </nav>
 
-    <div class="bg-light pt-3 pb-2 mt-3">
-        <div class="container bg-light">
-            <nav aria-label="breadcrumb ">
-                <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="#">Home</a></li>
-                    <li class="breadcrumb-item active" aria-current="page">Privacy & Policy</li>
-                </ol>
-            </nav>
-        </div>
-    </div>
+
 
 
 </header>

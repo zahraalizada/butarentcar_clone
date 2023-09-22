@@ -17,9 +17,6 @@ return [
     'email' => 'Email',
     'address' => 'Ünvan',
 
-    'footercontent1' => 'BAKIDA AVTOMOBİLLƏRİN KİRAYƏSİ',
-    'footercontent2' => 'Ödəniş üçün qəbul edirik',
-
     'bron'=> 'İNDİ BRON EDİN',
     'herotitle' =>'Bakıda avtomobil icarəsi',
     'herodesc' =>'Sürücüsüz və sürücü ilə olan icarəyə avtomobillər təklif edir',

@@ -5,7 +5,7 @@
     <div class="card">
         <div class="card-header d-flex flex-between-center">
             <h3>Car Brands</h3>
-            <a href="{{route('admin.carbrand.create',['locale'=>app()->getLocale()])}}" class="btn btn-primary btn-sm ">Add new </a>
+            <a href="{{route('admin.carbrands.create',['locale'=>app()->getLocale()])}}" class="btn btn-primary btn-sm ">Add new </a>
         </div>
 
         @if(Session::has('success'))
@@ -32,11 +32,11 @@
                                 <td>{{$item->icon}}</td>
                                 <td class="text-end">
                                     <div class="d-flex align-items-center justify-content-end">
-                                        <a href="{{route('admin.carbrand.edit',['carbrand'=>$item->id,'locale'=>app()->getLocale()])}}" class="btn p-0 ms-2" type="button" data-bs-toggle="tooltip"
+                                        <a href="{{route('admin.carbrands.edit',['carbrand'=>$item->id,'locale'=>app()->getLocale()])}}" class="btn p-0 ms-2" type="button" data-bs-toggle="tooltip"
                                                 data-bs-placement="top" title="Edit">
                                             <span class="text-500 fas fa-edit"></span>
                                         </a>
-                                        <form action="{{route('admin.carbrand.destroy',['carbrand'=>$item->id,'locale'=>app()->getLocale()])}}" method="post" type="button" class="btn p-0" onsubmit="return confirm('Delete product?')">
+                                        <form action="{{route('admin.carbrands.destroy',['carbrand'=>$item->id,'locale'=>app()->getLocale()])}}" method="post" type="button" class="btn p-0" onsubmit="return confirm('Delete product?')">
                                             @csrf
                                             @method('DELETE')
                                             <button class="btn p-0 ms-2" data-bs-toggle="tooltip"
