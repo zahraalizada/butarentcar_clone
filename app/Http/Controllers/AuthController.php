@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\User;
 use Dflydev\DotAccessData\Data;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 
 class AuthController extends Controller
@@ -44,6 +45,11 @@ class AuthController extends Controller
         $user->password = Hash::make($request->password);
         $user->save();
 
+        return redirect(route('admin.login',$locale));
+    }
+
+    public function logout($locale){
+        Auth::logout();
         return redirect(route('admin.login',$locale));
     }
 }

@@ -14,6 +14,7 @@ require_once "admin.php";
 
 Route::group(['middleware' => 'setlocale', 'prefix' => '{locale?}'], function () {
     Route::get('/', [Homepage::class, 'index'])->name('esassehife');
+    Route::post('/', [Homepage::class, 'currencyChange'])->name('currencyChange');
     Route::get('/privacy', [PrivacyPolicyController::class, 'index'])->name('mexfilik');
     Route::get('/faq', [QuestAnswerController::class, 'index'])->name('faq');
     Route::get('/contact', [ContactController::class, 'index'])->name('elaqe');

@@ -199,4 +199,14 @@ if (! function_exists('canonical_url')) {
     }
 }
 
+if (! function_exists('currency')) {
+    function currency($price): array|string
+    {
+        if (session()->get('currency')=='azn'){
+            return $price;
+        }else{
+            return $price*1.7;
+        }
+    }
+}
 

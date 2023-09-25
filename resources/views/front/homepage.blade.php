@@ -123,11 +123,11 @@
                                         <div class="d-flex p-3">
                                             <div class="col-6">
                                                 <div class="d-flex align-items-start"><span
-                                                        class="car-price-value me-1">60.00</span> <span
-                                                        class="car-price-symbol"> ₼</span></div>
+                                                        class="car-price-value me-1">{{$car->price}}</span> <span
+                                                        class="car-price-symbol"> ₼ </span></div>
                                             </div>
                                             <div class="col-6">
-                                                <button class="btn-bron">İNDİ BRON EDİN</button>
+                                                <button class="btn-bron js-brone" data-id="{{$car->id}}">İNDİ BRON EDİN</button>
                                             </div>
                                         </div>
 
@@ -233,7 +233,7 @@
                                                         class="car-price-symbol"> ₼</span></div>
                                             </div>
                                             <div class="col-6">
-                                                <button class="btn-bron">İNDİ BRON EDİN</button>
+                                                <button class="btn-bron js-brone" data-id="{{$car->id}}">İNDİ BRON EDİN</button>
                                             </div>
                                         </div>
 
@@ -246,8 +246,6 @@
             </div>
         </div>
     </div>
-
-
 
     <!-- Modal -->
     <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -310,7 +308,9 @@
         </div>
     </div>
 
+
 @endsection
+
 
 
 

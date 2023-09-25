@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Buta Rent a Car | Clone</title>
-
+    <meta name="csrf-token" content="{{ csrf_token() }}" />
     <!-- Fotawsome icon -->
     <link
         rel="stylesheet"
@@ -151,14 +151,11 @@
                         <a class="nav-link @if(Request::segment(2)=="contact") active text-danger @endif" href="{{route('elaqe',['locale'=>app()->getLocale()])}}">@lang('static_items.contact')</a>
                     </li>
                     <li class="nav-item ms-0 ms-lg-2 w-25">
-                        <select class="form-control d-none d-lg-block">
-                            <option>AZN (Azerbaijan New Manat)</option>
-                            <option>USD (US Dollar)</option>
+                        <select id="dovizSecimi" class="form-control d-none d-lg-block">
+                            <option value="azn" {{ session()->get('currency') == 'azn' ? 'selected' : '' }}>AZN (Azerbaijan New Manat)</option>
+                            <option value="dolar" {{ session()->get('currency') == 'dolar' ? 'selected' : '' }}>USD (US Dollar)</option>
                         </select>
-                        <select class="form-control d-block d-lg-none">
-                            <option>AZN</option>
-                            <option>USD</option>
-                        </select>
+
                     </li>
                 </ul>
             </div>

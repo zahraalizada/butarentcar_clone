@@ -17,6 +17,9 @@ class SetLocale
      */
     public function handle(Request $request, Closure $next)
     {
+        if (!Session::has('currency')){
+            Session::put('currency','azn');
+        }
         $locales = config('translatable.locales');
         if (!Session::has('locale')) {
             if (in_array($request->segment(1), $locales)) {

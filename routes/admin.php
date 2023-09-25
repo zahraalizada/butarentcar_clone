@@ -21,6 +21,7 @@ Route::group(['middleware' => ['setlocale'], 'prefix' => '{locale?}'], function 
         Route::post('/getlogin',[AuthController::class,'getlogin'])->name('getlogin');
         Route::get('/register',[AuthController::class,'register'])->name('register');
         Route::post('/getregister',[AuthController::class,'getregister'])->name('getregister');
+        Route::get('/logout',[AuthController::class, 'logout'])->name('logout');
 
         Route::group(['middleware' => ['admin']],function (){
             Route::get('dashboard', [Dashboard::class, 'index'])->name('dashboard');
