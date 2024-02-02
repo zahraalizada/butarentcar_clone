@@ -1,0 +1,136 @@
+.navbar-brand {
+    max-width: 130px !important;
+    /* max-height: 85px !important; */
+
+}
+
+.navbar-brand img {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: contain !important;
+    object-position: center center !important;
+}
+
+.fw-6 {
+    font-weight: 600;
+}
+
+.cover-img {
+    max-height: 350px;
+    min-height: 100px;
+    height: 350px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+}
+
+.cover-description {
+    padding-top: 100px;
+    margin-top: 32px;
+}
+
+.cover-description h1 {
+    color: #fff;
+    font-size: 54px;
+}
+
+.cover-description p {
+    color: #f3f3f3;
+    font-size: 2rem;
+    font-weight: 500;
+}
+
+.driver-status .nav-tabs .nav-link {
+    color: #ca1e25 !important;
+    font-weight: bold;
+    border-color: #dee2e6 #dee2e6 #fff;
+
+}
+
+.driver-status .nav-tabs .nav-item.show .nav-link, .nav-tabs .nav-link.active {
+    color: #ffffff !important;
+    font-weight: bold;
+    background-color: #000000;
+}
+
+.car-logo-box {
+    width: 60px;
+    height: 60px;
+    overflow: hidden;
+}
+
+.car-logo-box img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    object-position: center;
+}
+
+.car-modal-btn {
+    cursor: pointer;
+}
+
+.car-name {
+    color: #275271;
+    font-size: 26px;
+    font-weight: 600;
+    line-height: 1.15;
+    padding-left: 10px;
+}
+
+.car-image-box {
+    width: 280px;
+    height: 155px;
+    overflow: hidden;
+
+}
+
+.car-image-box img {
+    width: 100%;
+    height: 100%;
+    /*object-fit: cover;*/
+    object-position:  top center;
+}
+
+.btn-bron {
+    max-width: 180px;
+    height: 60px;
+    font-weight: 500;
+    font-size: 18px;
+    text-transform: uppercase;
+    color: #fff;
+    border-radius: 6px;
+    background-color: #000000;
+    white-space: nowrap;
+    padding: 15px 20px;
+    transition: all .2s cubic-bezier(.39, .575, .565, 1);
+}
+
+.btn-bron:hover {
+    background-color: #d30000;
+}
+.car-price-value,.car-price-symbol{
+    font-size: 28px;
+    font-weight: 600;
+    white-space: nowrap;
+    color: #5a5a5a;
+}
+.car-price-symbol{
+    font-size: 20px;
+}
+
+
+@media screen and (max-width: 500px) {
+    .btn-bron{
+        width: 150px !important;
+        font-size: 16px !important;
+
+    }
+
+    .btn-bron {
+        max-width: 140px;
+        font-size: 16px;
+        height: 50px;
+        padding: 0px 5px ;
+    }
+}
