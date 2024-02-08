@@ -22,8 +22,6 @@ Route::group(['middleware' => 'setlocale', 'prefix' => '{locale?}'], function ()
 });
 
 
-
-
 Route::get('/locale/{locale}', function ($lang) {
     Session::put('locale', $lang);
     $segments = prev_segments(url()->previous());
