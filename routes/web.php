@@ -28,6 +28,7 @@ Route::get('/locale/{locale}', function ($lang) {
     $segments[0] = $lang;
     $redirect = implode('/',$segments);
     app()->setLocale($lang);
+
     return redirect('/'.$redirect);
 })->name('setLocale');
 
